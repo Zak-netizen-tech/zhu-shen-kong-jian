@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>主神空间 | WorldBox 模组介绍</title>
+<meta name="description" content="WorldBox 模组「主神空间」介绍：轮回者、轮回空间、轮回商店，以及 23 个可自定义数值的内容。">
+<link rel="icon" href="img/mod-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== 顶部导航 ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <img src="img/mod-icon.png" alt="主神空间图标">
+      <span>主神空间<em>WorldBox 模组</em></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#core">核心玩法</a>
+      <a href="#contents">内容图鉴</a>
+      <a href="#systems">系统功能</a>
+      <a href="#start">快速上手</a>
+      <a href="#about">关于模组</a>
+    </nav>
+    <a class="nav-qq" href="#about">QQ群 659486348</a>
+  </div>
+</header>
+
+<!-- ===================== 首屏 ===================== -->
+<section class="hero" id="top">
+  <div class="hero-glow"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <p class="tag">WorldBox 模组 · 娱乐向 · 严重破坏平衡</p>
+      <h1>主神<span>空间</span></h1>
+      <p class="slogan">你 就 是 创 世 神</p>
+      <p class="lead">
+        一句话玩通：<b>轮回者</b>接任务赚轮回币 → 死亡扣币进<b>轮回空间</b> →
+        到点原地复活、一切保留，死前顺手去<b>轮回商店</b>花币买商品带回来。
+      </p>
+      <div class="hero-btns">
+        <a class="btn btn-gold" href="#core">看玩法</a>
+        <a class="btn btn-ghost" href="#contents">看图鉴</a>
+      </div>
+      <ul class="hero-stats">
+        <li><b>10</b><span>阶轮回者</span></li>
+        <li><b>23</b><span>个内容</span></li>
+        <li><b>4</b><span>个内容页签</span></li>
+        <li><b>∞</b><span>数值可自定义</span></li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <img class="art-main" src="img/mod-icon.png" alt="主神空间图标">
+      <img class="art-sub" src="img/observer-body.png" alt="观察者本身">
+      <img class="art-chip" src="img/reincarnator.png" alt="轮回者">
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 核心玩法 ===================== -->
+<section class="section" id="core">
+  <div class="wrap">
+    <p class="eyebrow">CORE GAMEPLAY</p>
+    <h2>轮回三件套</h2>
+    <p class="section-sub">三个系统一条线串起来玩，构成这个模组的主循环。</p>
+
+    <div class="cards3">
+      <article class="card reveal">
+        <div class="card-icon"><img src="img/reincarnator.png" alt="轮回者"></div>
+        <h3>轮回者</h3>
+        <p class="card-sub">被选中的单位 · 一阶 ~ 十阶</p>
+        <ul class="list">
+          <li>每隔 <b>30 年</b>（可调 1~100）生成一只<b>挑战骷髅</b>，属性 1:1 复刻 × 档位系数，<b>5 年内打死</b>即完成。</li>
+          <li>完成奖励永久增加 <b>伤害 / 生命 / 攻速 / 移速 / 寿命 / 防御值 / 免伤 / 破免伤</b> 与轮回币，加成随阶数翻倍。</li>
+          <li>击杀任何生物都掉 <b>轮回币</b>与经验；击杀轮回者还能收割对方一半轮回消耗、并按比例掠夺其数值。</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-icon"><img src="img/space-icon.png" alt="轮回空间"></div>
+        <h3>轮回空间</h3>
+        <p class="card-sub">轮回者的复活点</p>
+        <ul class="list">
+          <li>死亡时若轮回币够 <b>「轮回消耗」</b>（默认 10 枚）就扣币记账、开始倒计时；不够就正常死亡。</li>
+          <li>到点（默认 <b>20 年</b>）在<b>原死亡位置</b>复活：名字 / 性别 / 种族 / 氏族 / 收藏 / 全部特质 / 属性 / 经验 / 轮回币全保留，<b>连别的模组写在他身上的境界、修为、气运也一起保留</b>。</li>
+          <li>负面特质全部清除、年龄回到 18 岁；也可以点「<b>立即轮回</b>」马上复活。</li>
+        </ul>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-icon"><img src="img/shop.png" alt="轮回商店"></div>
+        <h3>轮回商店</h3>
+        <p class="card-sub">你自己上架、自己定价</p>
+        <ul class="list">
+          <li>点空白格「添加」→ 选特质 → 填价格 → 选品质；第一次打开时<b>物品页已铺好 7 枚魂环</b>。</li>
+          <li>轮回者被记入轮回空间的那一刻<b>自动消费一次</b>：只买 1 件，买得起里品质最高的那件，复活时一起穿上。</li>
+          <li><b>互斥组</b>只留最高档（魂环链条、写轮眼链条），被顶掉的那件按售价<b>退还轮回币</b>。</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 内容图鉴 ===================== -->
+<section class="section section-alt" id="contents">
+  <div class="wrap">
+    <p class="eyebrow">CONTENT LIBRARY</p>
+    <h2>内容图鉴</h2>
+    <p class="section-sub">23 个内容分在四个页签里，每一个都能在「自定义内容数据」里逐项改数字，改完立即生效。</p>
+
+    <div class="tabs" id="tabs">
+      <button class="tab is-on" data-tab="body">体质<span>4</span></button>
+      <button class="tab" data-tab="item">物品<span>11</span></button>
+      <button class="tab" data-tab="skill">技能<span>3</span></button>
+      <button class="tab" data-tab="status">状态<span>5</span></button>
+    </div>
+
+    <!-- 体质 -->
+    <div class="grid4 panel is-on" data-panel="body">
+      <article class="item q-purple reveal">
+        <img src="img/rinnegan.png" alt="六道轮回眼">
+        <h4>六道轮回眼 <span class="chip q-purple">紫</span></h4>
+        <p>传说中六道仙人的眼睛：攻击命中即天降双陨石（第二颗 3 倍），全属性大幅提升、可无视地形。</p>
+      </article>
+      <article class="item q-blue reveal">
+        <img src="img/mangekyou.png" alt="永恒万花筒写轮眼">
+        <h4>永恒万花筒写轮眼 <span class="chip q-blue">蓝</span></h4>
+        <p>攻击 / 被攻击时自动开启「须佐能乎」，并大幅提升生命、伤害、移速、攻速与暴击率。</p>
+      </article>
+      <article class="item q-green reveal">
+        <img src="img/sanmokudama.png" alt="三勾玉轮回眼">
+        <h4>三勾玉轮回眼 <span class="chip q-green">绿</span></h4>
+        <p>宇智波一族的血脉：生命 / 伤害 / 移速 / 攻速 / 暴击率全面提升，与更高档的眼睛互斥。</p>
+      </article>
+      <article class="item q-red reveal">
+        <img src="img/shiti.png" alt="噬体">
+        <h4>噬体 <span class="chip q-red">红</span></h4>
+        <p>击杀成长：每次击杀叠加属性、掠夺目标总属性、吞噬其能力；累计击杀还会解锁免伤、无视地形、攻击连锁与免疫负面。</p>
+      </article>
+    </div>
+
+    <!-- 物品 -->
+    <div class="grid4 panel" data-panel="item">
+      <article class="item q-gold reveal">
+        <img src="img/book.png" alt="真理之书">
+        <h4>真理之书 <span class="chip q-gold">金</span></h4>
+        <p>智力 +100 且 +100%；攻击智力低于自己者造成 21 亿物理伤害，<b>无视对方的免伤与防御值</b>。</p>
+      </article>
+      <article class="item q-purple reveal">
+        <img src="img/death-note.png" alt="死亡笔记">
+        <h4>死亡笔记 <span class="chip q-purple">紫</span></h4>
+        <p>攻击改为施加「死亡标记」；每 1 游戏年点名敌方阵营击杀数最高的 5 位，每人 9 亿物理伤害。</p>
+      </article>
+      <article class="item q-purple reveal">
+        <img src="img/gauntlet.png" alt="无限手套">
+        <h4>无限手套 <span class="chip q-purple">紫</span></h4>
+        <p>伤害 / 生命 +900000000、防御值 +9000000、免伤与破免伤 +50%；血量过低时爆发，对全图一半敌人造成巨额物理伤害。</p>
+      </article>
+      <article class="item q-plain reveal no-img">
+        <h4>死亡变强系统 <span class="chip q-gold">金</span></h4>
+        <p>受到致命伤时原地复活：修为 / 特质 / 氏族 / 阵营关系全部保留，年龄回 18 岁；每次复活<b>永久叠加</b>属性。</p>
+      </article>
+      <article class="item q-white reveal">
+        <img src="img/hunhuan-10.png" alt="十年魂环">
+        <h4>十年魂环 <span class="chip q-white">白</span></h4>
+        <p>生命 / 伤害 / 防御值 / 移速 / 攻速 各 +10（可调）。</p>
+      </article>
+      <article class="item q-yellow reveal">
+        <img src="img/hunhuan-100.png" alt="百年魂环">
+        <h4>百年魂环 <span class="chip q-yellow">黄</span></h4>
+        <p>生命 / 伤害 / 防御值 / 移速 / 攻速 各 +100。</p>
+      </article>
+      <article class="item q-green reveal">
+        <img src="img/hunhuan-1000.png" alt="千年魂环">
+        <h4>千年魂环 <span class="chip q-green">绿</span></h4>
+        <p>生命 / 伤害 / 防御值 / 移速 / 攻速 各 +1000。</p>
+      </article>
+      <article class="item q-blue reveal">
+        <img src="img/hunhuan-10000.png" alt="万年魂环">
+        <h4>万年魂环 <span class="chip q-blue">蓝</span></h4>
+        <p>五项各 +10000，并开始额外提供 <b>免伤 / 破免伤 +1%</b>。</p>
+      </article>
+      <article class="item q-purple reveal">
+        <img src="img/hunhuan-100000.png" alt="十万年魂环">
+        <h4>十万年魂环 <span class="chip q-purple">紫</span></h4>
+        <p>五项各 +100000，免伤 / 破免伤 +10%。</p>
+      </article>
+      <article class="item q-red reveal">
+        <img src="img/hunhuan-1000000.png" alt="百万年魂环">
+        <h4>百万年魂环 <span class="chip q-red">红</span></h4>
+        <p>五项各 +1000000，免伤 / 破免伤 +100%。</p>
+      </article>
+      <article class="item q-gold reveal">
+        <img src="img/hunhuan-10000000.png" alt="千万年魂环">
+        <h4>千万年魂环 <span class="chip q-gold">金</span></h4>
+        <p>五项各 +10000000，免伤 / 破免伤 +1000%。</p>
+      </article>
+    </div>
+
+    <!-- 技能 -->
+    <div class="grid4 panel" data-panel="skill">
+      <article class="item q-purple reveal">
+        <img src="img/six-offering.png" alt="六道祭品">
+        <h4>六道祭品 <span class="chip q-purple">紫</span></h4>
+        <p>杀满 6 人，把这 6 人的生命/伤害/移速/攻速总和 ×6 并入自身；之后每杀 1 人持续延长，期间额外免伤、免疫负面、可飞行。</p>
+      </article>
+      <article class="item q-blue reveal">
+        <img src="img/susanoo-icon.png" alt="须佐能乎">
+        <h4>须佐能乎 <span class="chip q-blue">蓝</span></h4>
+        <p>伤害 / 生命 +100%、防御值 +1000、免伤与破免伤 +20%、攻击范围 +20，可跨越地形；由万花筒在战斗中自动开启。</p>
+      </article>
+      <article class="item q-green reveal no-img">
+        <h4>无限闪避 <span class="chip q-green">绿</span></h4>
+        <p>原版「格挡」「闪避」的冷却变为 <b>0</b>，可以无限使用；获得时自动补上这两个原版特质。</p>
+      </article>
+    </div>
+
+    <!-- 状态 -->
+    <div class="grid4 panel" data-panel="status">
+      <article class="item q-red reveal">
+        <img src="img/madness.png" alt="疯狂">
+        <h4>疯狂 <span class="chip q-red">红</span></h4>
+        <p>智力永久锁定为 0，见谁打谁、无法建国；复活与读档后依旧保留。</p>
+      </article>
+      <article class="item q-gold reveal no-img">
+        <h4>永恒之火 <span class="chip q-gold">金</span></h4>
+        <p>每秒燃烧生命上限的 40%，无视一切护持与免伤。</p>
+      </article>
+      <article class="item q-gold reveal no-img">
+        <h4>无法攻击 <span class="chip q-gold">金</span></h4>
+        <p>从源头掐断一切攻击与施法（含弹道、灵技、神通、法则），登仙等高境界同样生效。</p>
+      </article>
+      <article class="item q-gold reveal no-img">
+        <h4>时间冻结 <span class="chip q-gold">金</span></h4>
+        <p>真·时间停止：完全停止 AI 与移动，烈焰与登仙都无法解除。</p>
+      </article>
+      <article class="item q-purple reveal no-img">
+        <h4>死亡标记 <span class="chip q-purple">紫</span></h4>
+        <p>每隔一段时间承受 21 亿物理伤害（受赋予者破免伤加成），无法清除直到该生物死亡。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 系统功能 ===================== -->
+<section class="section" id="systems">
+  <div class="wrap">
+    <p class="eyebrow">SYSTEMS</p>
+    <h2>神力与系统</h2>
+    <p class="section-sub">游戏底部神力栏「扎克」页就是入口，另外还有修改器与信息面板。</p>
+
+    <div class="grid3">
+      <article class="feat reveal">
+        <img src="img/mod-icon.png" alt="最高存在配置">
+        <div>
+          <h3>最高存在配置</h3>
+          <p>模组设置页：观察者生成与全图打击、轮回者获得率、生物转化开关，以及骷髅生成间隔、轮回复活年数两个滑条。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <img src="img/erase.png" alt="抹除存在">
+        <div>
+          <h3>抹除存在 / 无敌橡皮</h3>
+          <p>按画笔范围<b>彻底抹除</b>任何单位：连复活与其它模组的存档副本一起清干净。无敌橡皮是原版橡皮擦的满血致死，只是这一记不吃免伤与防御值。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <img src="img/extinction.png" alt="灭绝书">
+        <div>
+          <h3>灭绝书</h3>
+          <p>点击生物类型即可让它<b>灭绝</b>（立刻抹除现存者、此后不再出现）；再点一下恢复。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <img src="img/reincarnation-board.png" alt="轮回排行榜">
+        <div>
+          <h3>轮回排行榜</h3>
+          <p>当前存档里<b>全部活着的轮回者</b>排名（可按轮回币 / 品阶排序），点一条就跳到那个单位。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <img src="img/observer-icon.png" alt="观察者">
+        <div>
+          <h3>观察者</h3>
+          <p>同一世界唯一、<b>无法被任何方式杀死</b>（含纯移除与强杀通道）、不会被选为目标；攻击命中即抹除目标及其同类同阵营。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <img src="img/trait.png" alt="扎克修改器">
+        <div>
+          <h3>扎克修改器</h3>
+          <p>给人授予 / 删除 体质 · 物品 · 技能 · 状态；右上角「自定义内容数据」可改里面出现的<b>每一个数字</b>，改完立刻生效、不用重启。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <img src="img/reincarnator.png" alt="轮回者信息面板">
+        <div>
+          <h3>轮回者信息面板</h3>
+          <p>选中单位后，原版人物面板右侧自动出现：阶数、任务进度、轮回币、属性加成与内容清单，轮回币还能直接点着改。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🧬</div>
+        <div>
+          <h3>生物系统</h3>
+          <p>昆虫生成动物、动物生成人种的开关与概率（默认 20%，可调），让世界自己演化出人种与王国。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 快速上手 ===================== -->
+<section class="section section-alt" id="start">
+  <div class="wrap">
+    <p class="eyebrow">QUICK START</p>
+    <h2>四步开一局</h2>
+    <ol class="steps">
+      <li class="reveal"><span>1</span><div><h4>打开配置</h4><p>神力栏「扎克」→ 最高存在配置 → 打开「能否获得轮回者特质」（默认关闭，获得率默认 1%）。</p></div></li>
+      <li class="reveal"><span>2</span><div><h4>造一个轮回者</h4><p>等新单位诞生时判定命中，或直接用「扎克修改器」手动给某个单位加上轮回者特质。</p></div></li>
+      <li class="reveal"><span>3</span><div><h4>等它接任务</h4><p>每 30 年（可调）刷出一只挑战骷髅，5 年内打死就算完成 —— 属性与轮回币一起涨，经验攒够自动升阶。</p></div></li>
+      <li class="reveal"><span>4</span><div><h4>死了别慌</h4><p>打开「轮回空间」等倒计时，或直接点「立即轮回」；轮回者回来时等级与家当全都在。</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== 关于 / 警告 ===================== -->
+<section class="section" id="about">
+  <div class="wrap about">
+    <div class="warn reveal">
+      <h3>⚠ 使用前请看</h3>
+      <p>本 Mod 仅供娱乐，<b>严重破坏平衡</b>；「观察者」与「抹除存在」会对存档造成不可逆影响，
+        <b>使用前请务必先备份存档</b>。建议新开存档体验。</p>
+    </div>
+    <div class="qa reveal">
+      <h3>关于模组</h3>
+      <dl>
+        <dt>名称</dt><dd>主神空间</dd>
+        <dt>平台</dt><dd>WorldBox · NeoModLoader</dd>
+        <dt>作者</dt><dd>扎克</dd>
+        <dt>版本</dt><dd>1.0.0</dd>
+        <dt>QQ 群</dt><dd class="qq">659486348</dd>
+      </dl>
+      <p class="tiny">更多细节见模组内置「说明文档」文件夹（01-免责与警告 ~ 14-轮回商店）与「模组游玩教程」。</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>主神空间　|　你就是创世神</p>
+    <p class="tiny">QQ 群：659486348　·　本页面为模组介绍作业页，内容以游戏内实际表现为准。</p>
+  </div>
+</footer>
+
+<a class="totop" id="toTop" href="#top" title="回到顶部">↑</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

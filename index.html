@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>主神空间 | WorldBox 模组介绍</title>
-<meta name="description" content="WorldBox 模组「主神空间」介绍：轮回者、轮回空间、轮回商店，以及 23 个可自定义数值的内容。">
+<meta name="description" content="WorldBox 模组「主神空间」介绍：轮回者、轮回空间、轮回商店，以及 30 个可自定义数值的内容。">
 <link rel="icon" href="img/mod-icon.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -46,7 +46,7 @@
       </div>
       <ul class="hero-stats">
         <li><b>10</b><span>阶轮回者</span></li>
-        <li><b>23</b><span>个内容</span></li>
+        <li><b>30</b><span>个内容</span></li>
         <li><b>4</b><span>个内容页签</span></li>
         <li><b>∞</b><span>数值可自定义</span></li>
       </ul>
@@ -97,6 +97,7 @@
           <li>点空白格「添加」→ 选特质 → 填价格 → 选品质；第一次打开时<b>物品页已铺好 7 枚魂环</b>。</li>
           <li>轮回者被记入轮回空间的那一刻<b>自动消费一次</b>：只买 1 件，买得起里品质最高的那件，复活时一起穿上。</li>
           <li><b>互斥组</b>只留最高档（魂环链条、写轮眼链条），被顶掉的那件按售价<b>退还轮回币</b>。</li>
+          <li>「自定义数值」里还能<b>给商品改名</b>：改完商店、特质栏、提示框全都跟着变。</li>
         </ul>
       </article>
     </div>
@@ -108,13 +109,13 @@
   <div class="wrap">
     <p class="eyebrow">CONTENT LIBRARY</p>
     <h2>内容图鉴</h2>
-    <p class="section-sub">23 个内容分在四个页签里，每一个都能在「自定义内容数据」里逐项改数字，改完立即生效。</p>
+    <p class="section-sub">30 个内容分在四个页签里，每一个都能在「自定义内容数据」里逐项改数字，改完立即生效。</p>
 
     <div class="tabs" id="tabs">
-      <button class="tab is-on" data-tab="body">体质<span>4</span></button>
-      <button class="tab" data-tab="item">物品<span>11</span></button>
-      <button class="tab" data-tab="skill">技能<span>3</span></button>
-      <button class="tab" data-tab="status">状态<span>5</span></button>
+      <button class="tab is-on" data-tab="body">体质<span>7</span></button>
+      <button class="tab" data-tab="item">物品<span>13</span></button>
+      <button class="tab" data-tab="skill">技能<span>4</span></button>
+      <button class="tab" data-tab="status">状态<span>6</span></button>
     </div>
 
     <!-- 体质 -->
@@ -138,6 +139,21 @@
         <img src="img/shiti.png" alt="噬体">
         <h4>噬体 <span class="chip q-red">红</span></h4>
         <p>击杀成长：每次击杀叠加属性、掠夺目标总属性、吞噬其能力；累计击杀还会解锁免伤、无视地形、攻击连锁与免疫负面。</p>
+      </article>
+      <article class="item q-blue reveal">
+        <img src="img/banwen.png" alt="斑纹">
+        <h4>斑纹 <span class="chip q-blue">蓝</span></h4>
+        <p>燃烧寿命换取全方位增幅：生命 / 伤害各 +2000 且 +200%，移速 / 攻速各 +50 且 +200%；代价是寿命 -20%（有「缘一的体质」时免疫，轮回或重生一次后也自动解除）。</p>
+      </article>
+      <article class="item q-purple reveal">
+        <img src="img/yuanyi.png" alt="缘一的体质">
+        <h4>缘一的体质 <span class="chip q-purple">紫</span></h4>
+        <p>破免伤 +100%、伤害 +10 万且 +500%、生命 +1 万且 +100%，另有免伤 / 移速 / 攻速 / 攻击范围加成；自动附带「斑纹」「赫刀」「通透世界」，并免疫斑纹的寿命副作用。</p>
+      </article>
+      <article class="item q-purple reveal">
+        <img src="img/muzan.png" alt="无惨的体质">
+        <h4>无惨的体质 <span class="chip q-purple">紫</span></h4>
+        <p>生命 +10 万且 +100%、<b>寿命 +9 亿年</b>、每秒回复最大生命的 10%，另有伤害 / 免伤 / 破免伤 / 移速 / 攻速 / 攻击范围加成。</p>
       </article>
     </div>
 
@@ -197,6 +213,16 @@
         <h4>千万年魂环 <span class="chip q-gold">金</span></h4>
         <p>五项各 +10000000，免伤 / 破免伤 +1000%。</p>
       </article>
+      <article class="item q-yellow reveal">
+        <img src="img/hedao.png" alt="赫刀">
+        <h4>赫刀 <span class="chip q-yellow">黄</span></h4>
+        <p>伤害 +1000；攻击命中时给目标附加「赫刀之伤」（持续 10 秒）。</p>
+      </article>
+      <article class="item q-yellow reveal">
+        <img src="img/totem.png" alt="不死图腾">
+        <h4>不死图腾 <span class="chip q-yellow">黄</span></h4>
+        <p>受到致命伤时<b>原地满血复活一次</b>（图腾随即消失），复活同时清除全部负面特质与本模组的负面状态。</p>
+      </article>
     </div>
 
     <!-- 技能 -->
@@ -214,6 +240,11 @@
       <article class="item q-green reveal no-img">
         <h4>无限闪避 <span class="chip q-green">绿</span></h4>
         <p>原版「格挡」「闪避」的冷却变为 <b>0</b>，可以无限使用；获得时自动补上这两个原版特质。</p>
+      </article>
+      <article class="item q-blue reveal">
+        <img src="img/toushi.png" alt="通透世界">
+        <h4>通透世界 <span class="chip q-blue">蓝</span></h4>
+        <p>看清人体内部结构、命中弱点更容易破防：破免伤 +50%、伤害 +5000 且 +50%、移速 / 攻速 +50、攻击范围 +80。</p>
       </article>
     </div>
 
@@ -240,6 +271,10 @@
         <h4>死亡标记 <span class="chip q-purple">紫</span></h4>
         <p>每隔一段时间承受 21 亿物理伤害（受赋予者破免伤加成），无法清除直到该生物死亡。</p>
       </article>
+      <article class="item q-purple reveal no-img">
+        <h4>赫刀之伤 <span class="chip q-purple">紫</span></h4>
+        <p>每秒受到 1000 点物理伤害，且期间<b>无法回复任何血量</b>（回血 / 吸血 / 吃药全部无效）；由「赫刀」命中附加。</p>
+      </article>
     </div>
   </div>
 </section>
@@ -256,7 +291,7 @@
         <img src="img/mod-icon.png" alt="最高存在配置">
         <div>
           <h3>最高存在配置</h3>
-          <p>模组设置页：观察者生成与全图打击、轮回者获得率、生物转化开关，以及骷髅生成间隔、轮回复活年数两个滑条。</p>
+          <p>模组设置页 <b>21 项</b>，已按功能分组排序：观察者生成与全图打击、轮回者获得与获得率、<b>任务三开关</b>（轮回币 / 属性 / 经验）、掠夺开关与比例、三个收益倍率、跨存档轮回、骷髅生成间隔与复活年数等。</p>
         </div>
       </article>
       <article class="feat reveal">

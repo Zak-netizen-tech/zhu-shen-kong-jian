@@ -65,14 +65,19 @@ a{ color:inherit; text-decoration:none; }
 .brand{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.5px; }
 .brand img{ width:30px; height:30px; border-radius:7px; }
 .brand em{ font-style:normal; color:var(--muted); font-size:12px; margin-left:6px; }
-.nav-links{ display:flex; gap:22px; margin-left:auto; font-size:14px; color:var(--muted); }
-.nav-links a{ position:relative; padding:4px 0; }
-.nav-links a::after{
-  content:""; position:absolute; left:0; right:100%; bottom:0; height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--crimson)); transition:right .25s;
+/* 顶部模块按钮：点一下切换显示（同一时间只显示一个模块） */
+.nav-links{ display:flex; gap:8px; margin-left:auto; font-size:13.5px; color:var(--muted); flex-wrap:wrap; }
+.nav-links a{
+  position:relative; padding:6px 13px; border-radius:999px;
+  border:1px solid transparent; white-space:nowrap;
+  transition:background .2s, color .2s, border-color .2s, box-shadow .2s;
 }
-.nav-links a:hover{ color:var(--text); }
-.nav-links a:hover::after{ right:0; }
+.nav-links a:hover{ color:var(--text); background:rgba(255,255,255,.06); }
+.nav-links a.is-on{
+  color:#2a1f05; font-weight:700;
+  background:linear-gradient(180deg,var(--gold-2),var(--gold));
+  box-shadow:0 6px 16px rgba(245,196,81,.26);
+}
 .nav-qq{
   font-size:13px; color:var(--gold);
   border:1px solid rgba(245,196,81,.35);
@@ -80,6 +85,9 @@ a{ color:inherit; text-decoration:none; }
   background:rgba(245,196,81,.07);
 }
 .nav-qq:hover{ background:rgba(245,196,81,.16); }
+
+/* 被模块按钮切掉的模块：整块隐藏（含首屏） */
+.view-off{ display:none !important; }
 
 /* ===================== 首屏 ===================== */
 .hero{ position:relative; padding:120px 0 70px; overflow:hidden; }
@@ -300,7 +308,14 @@ a{ color:inherit; text-decoration:none; }
   .cards3{ grid-template-columns:1fr; }
   .grid4{ grid-template-columns:repeat(2,1fr); }
   .grid3{ grid-template-columns:repeat(2,1fr); }
-  .nav-links{ display:none; }
+  /* 顶部模块按钮是唯一入口，窄屏不能藏起来：改成横向可滑的一行 */
+  .nav-inner{ height:auto; flex-wrap:wrap; padding:10px 0; row-gap:8px; }
+  .nav-links{
+    order:3; width:100%; margin-left:0; gap:6px;
+    overflow-x:auto; padding-bottom:2px; -webkit-overflow-scrolling:touch;
+  }
+  .nav-links::-webkit-scrollbar{ height:0; }
+  .brand{ flex:1 1 auto; }
 }
 @media (max-width:640px){
   .section{ padding:60px 0; }

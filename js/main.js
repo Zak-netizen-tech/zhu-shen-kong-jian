@@ -35,7 +35,8 @@
     a.addEventListener('click', function (e) {
       e.preventDefault();
       var id = a.dataset.view;
-      if (history.replaceState) history.replaceState(null, '', '#' + id);
+      // 用 pushState：浏览器「后退」能回到上一个模块（hash 变化会触发 hashchange → 自动切回来）
+      if (history.pushState) history.pushState(null, '', '#' + id);
       showView(id);
     });
   });

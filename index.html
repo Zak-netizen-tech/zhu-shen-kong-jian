@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>主神空间 | WorldBox 模组介绍</title>
-<meta name="description" content="WorldBox 模组「主神空间」介绍：轮回者、轮回空间、轮回商店，以及 30 个可自定义数值的内容。">
+<title>主神空间▪万界 | WorldBox 模组介绍</title>
+<meta name="description" content="WorldBox 模组「主神空间▪万界」介绍：轮回者、轮回空间、轮回商店，以及 31 个可自定义数值的内容。">
 <link rel="icon" href="img/mod-icon.png">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,7 +15,7 @@
   <div class="wrap nav-inner">
     <a class="brand" href="#top">
       <img src="img/mod-icon.png" alt="主神空间图标">
-      <span>主神空间<em>WorldBox 模组</em></span>
+      <span>主神空间▪万界<em>WorldBox 模组</em></span>
     </a>
     <nav class="nav-links" id="viewNav">
       <a href="#top" data-view="top" class="is-on">首页</a>
@@ -23,6 +23,7 @@
       <a href="#contents" data-view="contents">内容图鉴</a>
       <a href="#systems" data-view="systems">系统功能</a>
       <a href="#mods" data-view="mods">联动模组</a>
+      <a href="#modstats" data-view="modstats">可修改属性</a>
       <a href="#start" data-view="start">快速上手</a>
       <a href="#about" data-view="about">关于模组</a>
     </nav>
@@ -36,7 +37,7 @@
   <div class="wrap hero-inner">
     <div class="hero-text">
       <p class="tag">WorldBox 模组 · 娱乐向 · 严重破坏平衡</p>
-      <h1>主神<span>空间</span></h1>
+      <h1>主神空间<span>▪万界</span></h1>
       <p class="slogan">你 就 是 创 世 神</p>
       <p class="lead">
         一句话玩通：<b>轮回者</b>接任务赚轮回币 → 死亡扣币进<b>轮回空间</b> →
@@ -48,7 +49,7 @@
       </div>
       <ul class="hero-stats">
         <li><b>10</b><span>阶轮回者</span></li>
-        <li><b>30</b><span>个内容</span></li>
+        <li><b>31</b><span>个内容</span></li>
         <li><b>4</b><span>个内容页签</span></li>
         <li><b>∞</b><span>数值可自定义</span></li>
       </ul>
@@ -111,10 +112,10 @@
   <div class="wrap">
     <p class="eyebrow">CONTENT LIBRARY</p>
     <h2>内容图鉴</h2>
-    <p class="section-sub">30 个内容分在四个页签里，每一个都能在「自定义内容数据」里逐项改数字，改完立即生效。</p>
+    <p class="section-sub">31 个内容分在四个页签里，每一个都能在「自定义内容数据」里逐项改数字，改完立即生效。</p>
 
     <div class="tabs" id="tabs">
-      <button class="tab is-on" data-tab="body">体质<span>7</span></button>
+      <button class="tab is-on" data-tab="body">体质<span>8</span></button>
       <button class="tab" data-tab="item">物品<span>13</span></button>
       <button class="tab" data-tab="skill">技能<span>4</span></button>
       <button class="tab" data-tab="status">状态<span>6</span></button>
@@ -122,106 +123,112 @@
 
     <!-- 体质 -->
     <div class="grid4 panel is-on" data-panel="body">
-      <article class="item q-purple reveal">
+      <article class="item q-purple reveal" data-detail="rinnegan" tabindex="0" role="button" aria-label="六道轮回眼 详情">
         <img src="img/rinnegan.png" alt="六道轮回眼">
         <h4>六道轮回眼 <span class="chip q-purple">紫</span></h4>
-        <p>传说中六道仙人的眼睛：攻击命中即天降双陨石（第二颗 3 倍），全属性大幅提升、可无视地形。</p>
+        <p>传说中六道仙人的眼睛：攻击命中即天降双陨石（第二颗 3 倍），全属性大幅提升（生命 +50 万/+100%、伤害 +5 万/+100%、防御值 +5 万、<b>免伤 / 破免伤各 +100%</b>、寿命 +1 万年、<b>每秒回血 = 5000 + 最大生命的 20%</b>），可无视地形。</p>
       </article>
-      <article class="item q-blue reveal">
+      <article class="item q-blue reveal" data-detail="mangekyou" tabindex="0" role="button" aria-label="永恒万花筒写轮眼 详情">
         <img src="img/mangekyou.png" alt="永恒万花筒写轮眼">
         <h4>永恒万花筒写轮眼 <span class="chip q-blue">蓝</span></h4>
         <p>攻击 / 被攻击时自动开启「须佐能乎」，并大幅提升生命、伤害、移速、攻速与暴击率。</p>
       </article>
-      <article class="item q-green reveal">
+      <article class="item q-green reveal" data-detail="sanmokudama" tabindex="0" role="button" aria-label="三勾玉轮回眼 详情">
         <img src="img/sanmokudama.png" alt="三勾玉轮回眼">
         <h4>三勾玉轮回眼 <span class="chip q-green">绿</span></h4>
         <p>宇智波一族的血脉：生命 / 伤害 / 移速 / 攻速 / 暴击率全面提升，与更高档的眼睛互斥。</p>
       </article>
-      <article class="item q-red reveal">
+      <article class="item q-red reveal" data-detail="shiti" tabindex="0" role="button" aria-label="噬体 详情">
         <img src="img/shiti.png" alt="噬体">
         <h4>噬体 <span class="chip q-red">红</span></h4>
         <p>击杀成长：每次击杀叠加属性、掠夺目标总属性、吞噬其能力；累计击杀还会解锁免伤、无视地形、攻击连锁与免疫负面。</p>
       </article>
-      <article class="item q-blue reveal">
+      <article class="item q-blue reveal" data-detail="banwen" tabindex="0" role="button" aria-label="斑纹 详情">
         <img src="img/banwen.png" alt="斑纹">
         <h4>斑纹 <span class="chip q-blue">蓝</span></h4>
         <p>燃烧寿命换取全方位增幅：生命 / 伤害各 +2000 且 +200%，移速 / 攻速各 +50 且 +200%；代价是寿命 -20%（有「缘一的体质」时免疫，轮回或重生一次后也自动解除）。</p>
       </article>
-      <article class="item q-purple reveal">
+      <article class="item q-purple reveal" data-detail="yuanyi" tabindex="0" role="button" aria-label="缘一的体质 详情">
         <img src="img/yuanyi.png" alt="缘一的体质">
         <h4>缘一的体质 <span class="chip q-purple">紫</span></h4>
-        <p>破免伤 +100%、伤害 +10 万且 +500%、生命 +1 万且 +100%，另有免伤 / 移速 / 攻速 / 攻击范围加成；自动附带「斑纹」「赫刀」「通透世界」，并免疫斑纹的寿命副作用。</p>
+        <p>破免伤 +100%、伤害 +10 万且 +500%、生命 +1 万且 +100%，另有免伤 / <b>自身闪避率 +80%</b> / 移速 / 攻速 / 攻击范围加成；自动附带「斑纹」「赫刀」「通透世界」，并免疫斑纹的寿命副作用。<br><span class="tiny">闪避率 = 移速项（自身移速 ÷ 对方移速 × 100 − 100）+ 自身闪避率，封顶 0~100%；掷中即整段无视一次来袭伤害连同附带效果（真理之书与永恒之火无法被闪避）。</span></p>
       </article>
-      <article class="item q-purple reveal">
+      <article class="item q-purple reveal" data-detail="muzan" tabindex="0" role="button" aria-label="无惨的体质 详情">
         <img src="img/muzan.png" alt="无惨的体质">
         <h4>无惨的体质 <span class="chip q-purple">紫</span></h4>
         <p>生命 +10 万且 +100%、<b>寿命 +9 亿年</b>、每秒回复最大生命的 10%，另有伤害 / 免伤 / 破免伤 / 移速 / 攻速 / 攻击范围加成。</p>
+      </article>
+      <article class="item q-red reveal" data-detail="sixeyes" tabindex="0" role="button" aria-label="六眼 详情">
+        <img src="img/sixeyes.png" alt="六眼">
+        <h4>六眼 <span class="chip q-red">红</span></h4>
+        <p>「天上地下，为我独尊」：生命 +60 万且 +60%、伤害 +6 万且 +60%、防御值 +60 万，另有<b>免伤 / 闪避 / 破免伤各 +600%</b>（免伤无上限＝完全免伤，闪避封顶＝必定闪避）。<br>
+          攻击命中时（冷却 1 游戏年）以自身为中心升起<b>直径 50 格的圆形地形框架</b>——内外两圈「山」、中间一圈再叠「光之墙」，范围内的建筑 / 植物 / 道路一律摧毁；圈内生物（自己除外）的 <b>AI 被直接停掉</b>（不动、不打、不干活，不给任何特质/状态），10 秒后地形还原、行动恢复。</p>
       </article>
     </div>
 
     <!-- 物品 -->
     <div class="grid4 panel" data-panel="item">
-      <article class="item q-gold reveal">
+      <article class="item q-gold reveal" data-detail="book" tabindex="0" role="button" aria-label="真理之书 详情">
         <img src="img/book.png" alt="真理之书">
         <h4>真理之书 <span class="chip q-gold">金</span></h4>
-        <p>智力 +100 且 +100%；攻击智力低于自己者造成 21 亿物理伤害，<b>无视对方的免伤与防御值</b>。</p>
+        <p>智力 <b>+1000 且 +1000%</b>；攻击智力低于自己者造成 21 亿物理伤害，<b>无视对方的免伤与防御值</b>（这一击不可被闪避）。</p>
       </article>
-      <article class="item q-purple reveal">
+      <article class="item q-purple reveal" data-detail="deathnote" tabindex="0" role="button" aria-label="死亡笔记 详情">
         <img src="img/death-note.png" alt="死亡笔记">
         <h4>死亡笔记 <span class="chip q-purple">紫</span></h4>
         <p>攻击改为施加「死亡标记」；每 1 游戏年点名敌方阵营击杀数最高的 5 位，每人 9 亿物理伤害。</p>
       </article>
-      <article class="item q-purple reveal">
+      <article class="item q-purple reveal" data-detail="gauntlet" tabindex="0" role="button" aria-label="无限手套 详情">
         <img src="img/gauntlet.png" alt="无限手套">
         <h4>无限手套 <span class="chip q-purple">紫</span></h4>
         <p>伤害 / 生命 +900000000、防御值 +9000000、免伤与破免伤 +50%；血量过低时爆发，对全图一半敌人造成巨额物理伤害。</p>
       </article>
-      <article class="item q-gold reveal">
+      <article class="item q-gold reveal" data-detail="deathpower" tabindex="0" role="button" aria-label="死亡变强系统 详情">
         <img src="img/death-power.png" alt="死亡变强系统">
         <h4>死亡变强系统 <span class="chip q-gold">金</span></h4>
         <p>受到致命伤时原地复活：修为 / 特质 / 氏族 / 阵营关系全部保留，年龄回 18 岁；每次复活<b>永久叠加</b>属性。</p>
       </article>
-      <article class="item q-white reveal">
+      <article class="item q-white reveal" data-detail="hunhuan10" tabindex="0" role="button" aria-label="十年魂环 详情">
         <img src="img/hunhuan-10.png" alt="十年魂环">
         <h4>十年魂环 <span class="chip q-white">白</span></h4>
         <p>生命 / 伤害 / 防御值 / 移速 / 攻速 各 +10（可调）。</p>
       </article>
-      <article class="item q-yellow reveal">
+      <article class="item q-yellow reveal" data-detail="hunhuan100" tabindex="0" role="button" aria-label="百年魂环 详情">
         <img src="img/hunhuan-100.png" alt="百年魂环">
         <h4>百年魂环 <span class="chip q-yellow">黄</span></h4>
         <p>生命 / 伤害 / 防御值 / 移速 / 攻速 各 +100。</p>
       </article>
-      <article class="item q-green reveal">
+      <article class="item q-green reveal" data-detail="hunhuan1000" tabindex="0" role="button" aria-label="千年魂环 详情">
         <img src="img/hunhuan-1000.png" alt="千年魂环">
         <h4>千年魂环 <span class="chip q-green">绿</span></h4>
         <p>生命 / 伤害 / 防御值 / 移速 / 攻速 各 +1000。</p>
       </article>
-      <article class="item q-blue reveal">
+      <article class="item q-blue reveal" data-detail="hunhuan10000" tabindex="0" role="button" aria-label="万年魂环 详情">
         <img src="img/hunhuan-10000.png" alt="万年魂环">
         <h4>万年魂环 <span class="chip q-blue">蓝</span></h4>
         <p>五项各 +10000，并开始额外提供 <b>免伤 / 破免伤 +1%</b>。</p>
       </article>
-      <article class="item q-purple reveal">
+      <article class="item q-purple reveal" data-detail="hunhuan100000" tabindex="0" role="button" aria-label="十万年魂环 详情">
         <img src="img/hunhuan-100000.png" alt="十万年魂环">
         <h4>十万年魂环 <span class="chip q-purple">紫</span></h4>
         <p>五项各 +100000，免伤 / 破免伤 +10%。</p>
       </article>
-      <article class="item q-red reveal">
+      <article class="item q-red reveal" data-detail="hunhuan1000000" tabindex="0" role="button" aria-label="百万年魂环 详情">
         <img src="img/hunhuan-1000000.png" alt="百万年魂环">
         <h4>百万年魂环 <span class="chip q-red">红</span></h4>
         <p>五项各 +1000000，免伤 / 破免伤 +100%。</p>
       </article>
-      <article class="item q-gold reveal">
+      <article class="item q-gold reveal" data-detail="hunhuan10000000" tabindex="0" role="button" aria-label="千万年魂环 详情">
         <img src="img/hunhuan-10000000.png" alt="千万年魂环">
         <h4>千万年魂环 <span class="chip q-gold">金</span></h4>
         <p>五项各 +10000000，免伤 / 破免伤 +1000%。</p>
       </article>
-      <article class="item q-yellow reveal">
+      <article class="item q-yellow reveal" data-detail="hedao" tabindex="0" role="button" aria-label="赫刀 详情">
         <img src="img/hedao.png" alt="赫刀">
         <h4>赫刀 <span class="chip q-yellow">黄</span></h4>
         <p>伤害 +1000；攻击命中时给目标附加「赫刀之伤」（持续 10 秒）。</p>
       </article>
-      <article class="item q-yellow reveal">
+      <article class="item q-yellow reveal" data-detail="totem" tabindex="0" role="button" aria-label="不死图腾 详情">
         <img src="img/totem.png" alt="不死图腾">
         <h4>不死图腾 <span class="chip q-yellow">黄</span></h4>
         <p>受到致命伤时<b>原地满血复活一次</b>（图腾随即消失），复活同时清除全部负面特质与本模组的负面状态。</p>
@@ -230,22 +237,22 @@
 
     <!-- 技能 -->
     <div class="grid4 panel" data-panel="skill">
-      <article class="item q-purple reveal">
+      <article class="item q-purple reveal" data-detail="offering" tabindex="0" role="button" aria-label="六道祭品 详情">
         <img src="img/six-offering.png" alt="六道祭品">
         <h4>六道祭品 <span class="chip q-purple">紫</span></h4>
         <p>杀满 6 人，把这 6 人的生命/伤害/移速/攻速总和 ×6 并入自身；之后每杀 1 人持续延长，期间额外免伤、免疫负面、可飞行。</p>
       </article>
-      <article class="item q-blue reveal">
+      <article class="item q-blue reveal" data-detail="susanoo" tabindex="0" role="button" aria-label="须佐能乎 详情">
         <img src="img/susanoo-icon.png" alt="须佐能乎">
         <h4>须佐能乎 <span class="chip q-blue">蓝</span></h4>
         <p>伤害 / 生命 +100%、防御值 +1000、免伤与破免伤 +20%、攻击范围 +20，可跨越地形；由万花筒在战斗中自动开启。</p>
       </article>
-      <article class="item q-green reveal">
+      <article class="item q-green reveal" data-detail="infinitedodge" tabindex="0" role="button" aria-label="无限闪避 详情">
         <img src="img/infinite-dodge.png" alt="无限闪避">
         <h4>无限闪避 <span class="chip q-green">绿</span></h4>
         <p>原版「格挡」「闪避」的冷却变为 <b>0</b>，可以无限使用；获得时自动补上这两个原版特质。</p>
       </article>
-      <article class="item q-blue reveal">
+      <article class="item q-blue reveal" data-detail="toushi" tabindex="0" role="button" aria-label="通透世界 详情">
         <img src="img/toushi.png" alt="通透世界">
         <h4>通透世界 <span class="chip q-blue">蓝</span></h4>
         <p>看清人体内部结构、命中弱点更容易破防：破免伤 +50%、伤害 +5000 且 +50%、移速 / 攻速 +50、攻击范围 +80。</p>
@@ -254,32 +261,32 @@
 
     <!-- 状态 -->
     <div class="grid4 panel" data-panel="status">
-      <article class="item q-red reveal">
+      <article class="item q-red reveal" data-detail="madness" tabindex="0" role="button" aria-label="疯狂 详情">
         <img src="img/madness.png" alt="疯狂">
         <h4>疯狂 <span class="chip q-red">红</span></h4>
         <p>智力永久锁定为 0，见谁打谁、无法建国；复活与读档后依旧保留。</p>
       </article>
-      <article class="item q-gold reveal">
+      <article class="item q-gold reveal" data-detail="eternalflame" tabindex="0" role="button" aria-label="永恒之火 详情">
         <img src="img/burn.png" alt="永恒之火">
         <h4>永恒之火 <span class="chip q-gold">金</span></h4>
         <p>每秒燃烧生命上限的 40%，无视一切护持与免伤。</p>
       </article>
-      <article class="item q-gold reveal">
+      <article class="item q-gold reveal" data-detail="noattack" tabindex="0" role="button" aria-label="无法攻击 详情">
         <img src="img/no-attack.png" alt="无法攻击">
         <h4>无法攻击 <span class="chip q-gold">金</span></h4>
         <p>从源头掐断一切攻击与施法（含弹道、灵技、神通、法则），登仙等高境界同样生效。</p>
       </article>
-      <article class="item q-gold reveal">
-        <img src="img/freeze.png" alt="时间冻结">
-        <h4>时间冻结 <span class="chip q-gold">金</span></h4>
-        <p>真·时间停止：完全停止 AI 与移动，烈焰与登仙都无法解除。</p>
+      <article class="item q-gold reveal" data-detail="stop" tabindex="0" role="button" aria-label="停止 详情">
+        <img src="img/stop.png" alt="停止">
+        <h4>停止 <span class="chip q-gold">金</span></h4>
+        <p>真·时间停止：完全停止 AI 与移动，封锁一切攻击与施法，烈焰与登仙都无法解除；<b>没有任何冰晶与冰冻视觉</b>。</p>
       </article>
-      <article class="item q-purple reveal">
+      <article class="item q-purple reveal" data-detail="deathmark" tabindex="0" role="button" aria-label="死亡标记 详情">
         <img src="img/death-mark.png" alt="死亡标记">
         <h4>死亡标记 <span class="chip q-purple">紫</span></h4>
         <p>每隔一段时间承受 21 亿物理伤害（受赋予者破免伤加成），无法清除直到该生物死亡。</p>
       </article>
-      <article class="item q-purple reveal">
+      <article class="item q-purple reveal" data-detail="hedaowound" tabindex="0" role="button" aria-label="赫刀之伤 详情">
         <img src="img/hedao-wound.png" alt="赫刀之伤">
         <h4>赫刀之伤 <span class="chip q-purple">紫</span></h4>
         <p>每秒受到 1000 点物理伤害，且期间<b>无法回复任何血量</b>（回血 / 吸血 / 吃药全部无效）；由「赫刀」命中附加。</p>
@@ -307,7 +314,7 @@
         <img src="img/erase.png" alt="抹除存在">
         <div>
           <h3>抹除存在 / 无敌橡皮</h3>
-          <p>按画笔范围<b>彻底抹除</b>任何单位：连复活与其它模组的存档副本一起清干净。无敌橡皮是原版橡皮擦的满血致死，只是这一记不吃免伤与防御值。</p>
+          <p>按画笔范围<b>彻底抹除</b>任何单位：连复活与其它模组的存档副本一起清干净。无敌橡皮是原版橡皮擦的满血致死，只是这一记不吃免伤与防御值。<b>两者都不会被闪避</b>。</p>
         </div>
       </article>
       <article class="feat reveal">
@@ -353,6 +360,55 @@
         </div>
       </article>
     </div>
+
+    <h3 class="subhead">属性判定 · 免伤 / 破免伤 / 防御值 / 闪避率</h3>
+    <p class="section-sub">
+      本模组新增的四个通用属性。任何来源的伤害 —— 原版攻击、其它模组的技能直伤、本模组的物品与状态 ——
+      都按同一口径结算，顺序是：<b>先掷闪避 → 再算百分比免伤 → 最后减防御值</b>，残伤 ≤ 0 即 0 伤害。
+    </p>
+
+    <div class="grid3">
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🛡️</div>
+        <div>
+          <h3>免伤</h3>
+          <p>百分比减伤，<b>无上限</b>（超过 100% 即完全免伤）。可被对方的「破免伤」按百分点抵消：
+            对方免伤 100% − 你破免伤 10% → 他实际只剩 90%。对原版 getHit、其它模组直写血量、
+            鬼谷修仙的中心伤害入口统一生效。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🗡️</div>
+        <div>
+          <h3>破免伤</h3>
+          <p>按百分点「减法」吃掉对方的减免：本模组免伤、鬼谷境界压制（99.99% − 破免伤）、
+            凡人每差 1 境的减伤、玄门 0.1^境界差、斗破按实测折减穿透（它<b>直接归零</b>的免疫/闪避不穿透）。<br>
+            溢出伤害击穿：超出当前生命的伤害会直接扣对方的「天地之力」（鬼谷护体/保命资源），两者都空即击杀。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🧱</div>
+        <div>
+          <h3>防御值</h3>
+          <p>固定抵消伤害，<b>不足抵消时伤害为 0</b>（不保底 1 点）：<br>
+            对方 200 伤害 − 你 100 防御 → 只受 100；对方 10 伤害 − 你 1000 防御 → 0 伤害。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">💨</div>
+        <div>
+          <h3>闪避率</h3>
+          <p><b>实际闪避率 = 移速项 + 自身闪避率</b>，封顶 0~100%：
+            移速项 = 自身移速 ÷ 对方移速 × 100 − 100。<br>
+            自身移速 200 / 对方 100 → <b>100%</b>；自身 150 / 对方 100 → <b>50%</b>；
+            自身 100 / 对方 200 → −50%，此时若自身闪避率 80%（缘一的体质）则 <b>−50% + 80% = 30%</b>
+            （负值不先归零，先加自身闪避率再封顶）。<br>
+            掷中即<b>整段无视本次伤害连同它的附带效果</b>（赫刀之伤 / 死亡标记 / 死亡笔记点名 / 无限手套爆发都能闪）；
+            状态跳伤按「施加者移速」算，<b>玩家直接施加的按 1000 移速</b>。<br>
+            <b>不可被闪避</b>：真理之书碾压、永恒之火、观察者抹除、抹除存在 / 无敌橡皮。</p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -384,49 +440,49 @@
       <article class="modcard reveal">
         <img src="img/mods/zhutian.png" alt="诸天神座">
         <div>
-          <h4>诸天神座</h4>
+          <h4>诸天神座 v0.1.0</h4>
           <p>词条 / 道途 / 境界 / 天劫 / 起源 / 时代标记全在 <b>zhutianshenzuo.*</b>，复活一点不漏。它是「读时折算」派，不写原版属性，两边互不打架。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/doupo.png" alt="斗破人生">
         <div>
-          <h4>斗破人生 v0.32</h4>
+          <h4>斗破人生 v0.32.52</h4>
           <p>境界档位 / 斗气 / 异火 / 血脉 / 灵魂 / 纳戒 / 功法 / 妖兽 / 拍卖 全在 <b>doupo_life.*</b>，一起带回来。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/zhanshen.png" alt="斩神录">
         <div>
-          <h4>斩神录</h4>
+          <h4>斩神录 v1.0</h4>
           <p>神墟境界经验 / 变体 / 渡劫 / 疯狂值 / 共鸣城市 / 神明青睐 全在 <b>zhanshenlu.*</b>。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/tianrenwudao.jpg" alt="天人武道">
         <div>
-          <h4>天人武道</h4>
+          <h4>天人武道 v1.0.7.1</h4>
           <p>境界 / 修为 / 真罡 / 神藏 / 道心的 <b>tianren.martial.*</b> 全部保留。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/zhetian.png" alt="遮天修行录">
         <div>
-          <h4>遮天修行录</h4>
+          <h4>遮天修行录 v3.2.29</h4>
           <p>帝路 / 禁区 / 黑暗动乱 / 血脉 / 古路（180+ 个 <b>zhetian.*</b> 键）全部保留。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/guigu.png" alt="鬼谷修仙">
         <div>
-          <h4>鬼谷修仙[重制]</h4>
+          <h4>鬼谷修仙[重制] v1.0.6.8</h4>
           <p>功法 / 境界 / 突破上限 / 灵兽 / 背包页签数据（<b>xiuxian.*</b>）全部保留。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/guimi.png" alt="诡秘之主">
         <div>
-          <h4>诡秘之主</h4>
+          <h4>诡秘之主-宿命之环 v3.5</h4>
           <p>途径 / 序列 / 恩赐 / 锚点（<b>lotm_*</b>）全部保留。</p>
         </div>
       </article>
@@ -440,28 +496,28 @@
       <article class="modcard reveal">
         <img src="img/mods/wuji.png" alt="武极寰宇录">
         <div>
-          <h4>武极寰宇录</h4>
+          <h4>武极寰宇录 v1.9.14</h4>
           <p>境界 / 真罡 / 阵纹 / 修为（<b>wushu.*</b>）全部保留。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/xuanmen.png" alt="玄门道界">
         <div>
-          <h4>玄门道界</h4>
+          <h4>玄门道界-仙玄道 beta1.1.1</h4>
           <p>修为 / 道途 / 五韵 / 天劫（<b>xuanpin.*</b>）全部保留。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/shengwuxue.png" alt="生物学">
         <div>
-          <h4>生物学</h4>
+          <h4>生物学 v1.0.9</h4>
           <p>器官寿命改写（<b>bio_*</b>）跟着一起复活。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/zidingyi.png" alt="自定义修炼">
         <div>
-          <h4>自定义修炼</h4>
+          <h4>自定义修炼 v0.9.5</h4>
           <p>体系 / 境界 / 天赋 / 历史（<b>inmny.custommodt001_custom.*</b>）全部保留。</p>
         </div>
       </article>
@@ -475,60 +531,146 @@
       <article class="modcard reveal">
         <img src="img/mods/qiyuan.png" alt="启源修仙">
         <div>
-          <h4>启源修仙</h4>
+          <h4>启源修仙 v0.0.29</h4>
           <p>它的逐单位数据存在自建 ECS 里（ActorData 只有一个实体 id）—— 所以只保证<b>原地复活</b>时完整；跨身体轮回时它那套框架不跟着走。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/xuanjian.png" alt="玄鉴仙族">
         <div>
-          <h4>玄鉴仙族</h4>
+          <h4>玄鉴仙族 v0.9.17</h4>
           <p>逐单位键名没在它源码里找到（框架化存储）；本模组对<b>未知前缀一律全量搬运</b>，不会漏。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/xianni.png" alt="仙逆">
         <div>
-          <h4>仙逆·修真世界</h4>
+          <h4>仙逆·修真世界 v0.4.2</h4>
           <p>同上：未知前缀同样全量搬运，轮回后数据不丢。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/guzhenren.png" alt="蛊真人">
         <div>
-          <h4>蛊真人·吾命如蛊</h4>
+          <h4>蛊真人·吾命如蛊 v0.35.2</h4>
           <p>同上：未知前缀同样全量搬运，轮回后数据不丢。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/xihuan.png" alt="西幻世界">
         <div>
-          <h4>西幻世界</h4>
+          <h4>西幻世界 v0.8.6</h4>
           <p>同上：未知前缀同样全量搬运，轮回后数据不丢。</p>
         </div>
       </article>
       <article class="modcard reveal">
         <img src="img/mods/dengshen.png" alt="登神长阶">
         <div>
-          <h4>登神长阶（基因修炼）</h4>
+          <h4>登神长阶（基因修炼） v0.6.0</h4>
           <p>同上：未知前缀同样全量搬运，轮回后数据不丢。</p>
         </div>
       </article>
       <article class="modcard no-icon reveal">
         <div>
-          <h4>往生书</h4>
+          <h4>往生书 v2.3</h4>
           <p>家谱 / 史记 / 灵魂池存它自己的 SQLite，轮回不受影响；它那套「谁附在谁身上」的<b>活体附身状态故意不搬运</b>（搬了会长出幻影附身）。</p>
         </div>
       </article>
       <article class="modcard no-icon reveal">
         <div>
-          <h4>凡人修仙传</h4>
+          <h4>凡人修仙传 v0.1.0</h4>
           <p>境界 / 修为 / 灵根 / 功法 / 金丹（<b>fanren.*</b>）全部保留。</p>
         </div>
       </article>
     </div>
 
     <p class="section-sub" style="margin-top:22px">面板也做过避让：多个模组的单位面板（斗破的 ☰、天人武道 / 玄鉴 / 遮天 的面板）可以并存，本模组的「面板切换器」在发现某块面板由它自己的开关管理时会<b>自动让位</b>，不再互相压。</p>
+  </div>
+</section>
+
+<!-- ===================== 可修改属性（轮回商店能改到别的模组的什么） ===================== -->
+<section class="section" id="modstats">
+  <div class="wrap">
+    <p class="eyebrow">EDITABLE STATS</p>
+    <h2>可修改属性的模组</h2>
+    <p class="section-sub">
+      轮回商店有<b>两条</b>改到别的模组身上的路：<br>
+      ① <b>＋添加属性</b> —— 轮回商店 → 选一件商品 →「自定义数值」→ 最下面那行「＋ 添加属性」，
+      列出的是游戏属性库 <b>base_stats_library</b> 里的<b>全部属性</b>（原版 + 本模组 + 其它模组注册的），
+      挑一个填数字就行，点「添加」立刻写进这件商品、并立刻对全场持有者生效。<br>
+      ② <b>其它模组数值</b> —— 轮回商店右上角「自定义内容数据」<b>左边</b>那个按钮，读的是别的模组自己的
+      NeoModLoader 配置文件 <b>mods_config\&lt;模组GUID&gt;.config</b>：数值项点行改数字点保存、开关项点一下即切换。
+      ★ 这一页改的是它们<b>启动时读一次</b>的设置，<b>要重启游戏才生效</b>（且不按它自己滑条的上限夹取，
+      例如斗破「修炼倍率」滑条上限是 3，这里能改成 5）。
+    </p>
+    <p class="section-sub" style="margin-top:-24px">
+      下面每个模组一张卡：<b>点卡片看详情</b>（能改什么 / 改了有什么用 / 具体怎么点）。
+      键名、数值、范围都逐个对照过该模组自己的源码与配置文件，卡底标注出处。
+    </p>
+
+    <div class="modgrid">
+      <article class="modcard reveal" data-mod="doupo" tabindex="0" role="button" aria-label="斗破人生 可改属性详情">
+        <img src="img/mods/doupo.png" alt="斗破人生">
+        <div>
+          <h4>斗破人生 v0.32.52</h4>
+          <p>整张 NML 配置表都能改（修炼/磨魂/异火/炼药/妖兽/血脉/斗技/各境界在世上限…），
+            它还<b>真注册进属性库</b>了一批 <b>doupo_life_*</b>：防御、空间穿透、本源法则、格挡/破击/韧性/反击。</p>
+        </div>
+      </article>
+      <article class="modcard reveal" data-mod="guigu" tabindex="0" role="button" aria-label="鬼谷修仙 可改数值详情">
+        <img src="img/mods/guigu.png" alt="鬼谷修仙">
+        <div>
+          <h4>鬼谷修仙[重制] v1.0.6.8</h4>
+          <p>7 组 <b>115 项</b>配置：击杀经验系数、灵气浓度、有灵根者比例、仙道最高气运、
+            各境界在世人数上限、灵脉系统、灭门掠经、炼器/炼丹师诞生率…</p>
+        </div>
+      </article>
+      <article class="modcard reveal" data-mod="tianren" tabindex="0" role="button" aria-label="天人武道 可改数值详情">
+        <img src="img/mods/tianrenwudao.jpg" alt="天人武道">
+        <div>
+          <h4>天人武道 v1.0.7.1</h4>
+          <p>武道系统的核心数值：击杀经验倍率、武道资质比例、<b>境界压制免伤</b>，
+            外加自动收藏与史册开关。</p>
+        </div>
+      </article>
+      <article class="modcard reveal" data-mod="xuanjian" tabindex="0" role="button" aria-label="玄鉴仙族 可改属性详情">
+        <img src="img/mods/xuanjian.png" alt="玄鉴仙族">
+        <div>
+          <h4>玄鉴仙族 v0.9.17</h4>
+          <p>修炼开关 / 资质概率 / 求金法 / 剑意 / 洞天周期 / 公告 等 6 组配置；
+            属性库里还注册了 <b>ZhenYuan</b>（真元）、<b>MingShu</b>、<b>HuiGuang</b>、Resist、Dodge、Vampire 等战斗属性。</p>
+        </div>
+      </article>
+      <article class="modcard reveal" data-mod="qiyuan" tabindex="0" role="button" aria-label="启源修仙 可改属性详情">
+        <img src="img/mods/qiyuan.png" alt="启源修仙">
+        <div>
+          <h4>启源修仙 v0.0.29</h4>
+          <p>12 项系统总开关（地理演化 / 功法 / 符箓 / 丹药 / 师徒 / 技能 / 宗门 / 灵气扩散 / 灵根…）；
+            属性库里注册了 <b>76 条</b>属性：8 系抗性、8 系精通、神识、元神上限、气运上限…</p>
+        </div>
+      </article>
+      <article class="modcard reveal" data-mod="zidingyi" tabindex="0" role="button" aria-label="自定义修炼 可改属性详情">
+        <img src="img/mods/zidingyi.png" alt="自定义修炼">
+        <div>
+          <h4>自定义修炼 v0.9.5</h4>
+          <p>5 项配置（城市投降 / 体系继承 / 动荡世界 / 武器耐久 / 突破历史）；
+            并注册了 <b>inmny.custommodt001_custom.*</b> 一批属性：闪避、命中、抗暴、吸血、真伤…</p>
+        </div>
+      </article>
+      <article class="modcard reveal" data-mod="self" tabindex="0" role="button" aria-label="主神空间本模组 可改属性详情">
+        <img src="img/mod-icon.png" alt="主神空间▪万界">
+        <div>
+          <h4>主神空间▪万界（本模组）</h4>
+          <p>本模组自己注册了 4 条倍率属性：攻击范围 / 攻击目标 / 智力 / 寿命；
+            自带 31 个内容的数值走「自定义内容数据」，改完立刻生效。</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="section-sub" style="margin-top:22px">
+      ★ 没有列出来的模组，是因为它们的属性与数值在本机<b>既没有装、也没有可核对的源码</b>，
+      按「不编」的原则这里就不写；它们的特质仍然能上架、能定价，只是没有「可改数值」这一层。
+    </p>
   </div>
 </section>
 
@@ -546,7 +688,7 @@
     <div class="qa reveal">
       <h3>关于模组</h3>
       <dl>
-        <dt>名称</dt><dd>主神空间</dd>
+        <dt>名称</dt><dd>主神空间▪万界</dd>
         <dt>平台</dt><dd>WorldBox · NeoModLoader</dd>
         <dt>作者</dt><dd>扎克</dd>
         <dt>版本</dt><dd>1.0.0</dd>
@@ -560,7 +702,7 @@
 
 <footer class="footer">
   <div class="wrap">
-    <p>主神空间　|　你就是创世神</p>
+    <p>主神空间▪万界　|　你就是创世神</p>
     <p class="tiny">QQ 群：659486348　·　本页面为模组介绍作业页，内容以游戏内实际表现为准。</p>
   </div>
 </footer>

@@ -135,7 +135,7 @@
       tune: '须佐的持续秒数与冷却年数见「自定义内容数据 → 须佐能乎 / 永恒万花筒」（可调项 `susanoo.sec` 与 `susanoo.cd_years`）。'
     },
     sanmokudama: {
-      name: '三勾玉轮回眼', q: 'q-green', qtext: '绿', img: 'img/sanmokudama.png',
+      name: '三勾玉轮回眼', q: 'q-yellow', qtext: '黄', img: 'img/sanmokudama.png',
       mech: [
         '宇智波一族的血脉。纯属性型内容，没有主动技能。',
         '只要身上有「六道轮回眼」或「永恒万花筒写轮眼」，它就永远无法获得（修改器手动添加也直接失效并弹提示）。',
@@ -228,7 +228,7 @@
 
     /* ----- 物品 13 ----- */
     book: {
-      name: '真理之书', q: 'q-gold', qtext: '金', img: 'img/book.png',
+      name: '真理之书', q: 'q-red', qtext: '红', img: 'img/book.png',
       mech: [
         '智力 +1000 且 +1000%，丢书立即还原。',
         '普通攻击命中「智力低于自己」的目标时不再按普通伤害结算，改为碾压。',
@@ -245,7 +245,7 @@
       tune: '数值见「自定义内容数据 → 真理之书」。'
     },
     deathnote: {
-      name: '死亡笔记', q: 'q-purple', qtext: '紫', img: 'img/death-note.png',
+      name: '死亡笔记', q: 'q-red', qtext: '红', img: 'img/death-note.png',
       mech: [
         '攻击目标时不结算伤害，改为给目标打上「死亡标记」状态（每 10 秒 21 亿物理伤害，直到该生物死亡）。',
         '目标已有标记时刷新赋予者与下一跳计时。',
@@ -261,7 +261,7 @@
       tune: '数值见「自定义内容数据 → 死亡笔记」。'
     },
     gauntlet: {
-      name: '无限手套', q: 'q-purple', qtext: '紫', img: 'img/gauntlet.png',
+      name: '无限手套', q: 'q-red', qtext: '红', img: 'img/gauntlet.png',
       mech: [
         '常驻加成极高（9 亿级），同时自带一个低血爆发。',
         '自身血量 ≤ 1/3，或「天地之力」≤ 上限的 1/3 时触发爆发：立刻自损 1/4 血量，并对全图「除自己与友军外」随机一半单位造成 20 亿物理伤害。',
@@ -388,7 +388,7 @@
       tune: '数值见「自定义内容数据 → 千万年魂环」或 轮回商店 → 该商品 →「自定义数值」。'
     },
     hedao: {
-      name: '赫刀', q: 'q-yellow', qtext: '黄', img: 'img/hedao.png',
+      name: '赫刀', q: 'q-green', qtext: '绿', img: 'img/hedao.png',
       mech: [
         '伤害 +1000，攻击命中时给目标附加「赫刀之伤」状态，持续 10 秒、每次命中刷新计时。',
         '中招者每秒掉 1000 点物理伤害，并且期间无法回复任何血量 —— 回血 / 吸血 / 吃药 / 每秒回血全部无效。',
@@ -455,7 +455,7 @@
       tune: '可调项 `susanoo.sec`（持续秒数）与 `susanoo.cd_years`（冷却年数）在「自定义内容数据 → 须佐能乎 / 永恒万花筒」里改。'
     },
     infinitedodge: {
-      name: '无限闪避', q: 'q-green', qtext: '绿', img: 'img/infinite-dodge.png',
+      name: '无限闪避', q: 'q-blue', qtext: '蓝', img: 'img/infinite-dodge.png',
       mech: [
         '获得时自动获得原版「格挡」「闪避」两个特质（原本就有的不动）。',
         '拥有期间这两个特质的冷却变为 0，可以无限使用；冲刺 / 后撤步等其它动作不受影响。',
@@ -579,6 +579,51 @@
       tune: '数值见「自定义内容数据 → 赫刀 / 赫刀之伤」。'
     }
   };
+
+  /* ---------- ⑥-1 轮回币建议价（本模组自带的 25 件内容） ---------- */
+  // 键与上面 DETAILS 一一对应；数值 = 轮回商店里的默认售价（单位：轮回币）。
+  // 七枚魂环的价格 = 它的年限数值；6 个负面 / 控制类状态写「不上架」。
+  var PRICES = {
+    /* 体质 8 */
+    sixeyes: 3000000,            // 六眼
+    shiti: 2000000,              // 噬体
+    yuanyi: 800000,              // 缘一的体质
+    rinnegan: 600000,            // 六道轮回眼
+    muzan: 300000,               // 无惨的体质
+    banwen: 30000,               // 斑纹
+    mangekyou: 20000,            // 永恒万花筒写轮眼
+    sanmokudama: 500,            // 三勾玉轮回眼
+    /* 物品 13 */
+    deathpower: 10000000,        // 死亡变强系统
+    hunhuan10000000: 10000000,   // 千万年魂环
+    book: 5000000,               // 真理之书
+    gauntlet: 2000000,           // 无限手套
+    deathnote: 1000000,          // 死亡笔记
+    hunhuan1000000: 1000000,     // 百万年魂环
+    hunhuan100000: 100000,       // 十万年魂环
+    hunhuan10000: 10000,         // 万年魂环
+    totem: 100,                   // 不死图腾（一次性免死；经济基准 = 一次轮回「10 币 + 20 年」⇒ 定在轮回成本的 10 倍）
+    hedao: 5000,                 // 赫刀（唯一的封回血手段 —— 由 1000 上调）
+    hunhuan1000: 1000,           // 千年魂环
+    hunhuan100: 100,             // 百年魂环
+    hunhuan10: 10,              // 十年魂环
+    /* 技能 4 */
+    offering: 300000,            // 六道祭品
+    susanoo: 20000,              // 须佐能乎
+    infinitedodge: 20000,        // 无限闪避（生存质变 —— 由 5000 上调）
+    toushi: 10000,               // 通透世界
+    /* 状态 6：负面 / 控制类，商店默认不上架 */
+    madness: '不上架', eternalflame: '不上架', noattack: '不上架',
+    stop: '不上架', deathmark: '不上架', hedaowound: '不上架'
+  };
+
+  // 600000 → "600,000"；再给一个「60 万」的口语写法（整万 / 整亿才给）
+  function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function wan(n) {
+    if (n >= 100000000 && n % 100000000 === 0) return (n / 100000000) + ' 亿';
+    if (n >= 10000 && n % 10000 === 0) return (n / 10000) + ' 万';
+    return '';
+  }
 
   // 各大模组「轮回商店能改到它什么」。键名 / 数值 / 范围逐个对照过该模组自己的配置文件与源码。
   var MODDETAILS = {
@@ -792,6 +837,17 @@
     var html = '<div class="detail-head"><img src="' + esc(d.img) + '" alt="' + esc(d.name) + '">'
       + '<div><h3>' + esc(d.name) + ' <span class="chip ' + esc(d.q) + '">' + esc(d.qtext) + '</span></h3>'
       + '<p class="detail-sub">机制 + 技能 / 效果清单</p></div></div>';
+    // 建议价（放在标题下方、「机制」之前）
+    var p = PRICES[id];
+    if (p !== undefined) {
+      var isNum = typeof p === 'number';
+      html += '<div class="detail-price' + (isNum ? '' : ' is-off') + '">建议价：'
+        + '<b>' + (isNum ? fmt(p) + ' 轮回币' : esc(p)) + '</b>'
+        + (isNum && wan(p) ? '<em>' + wan(p) + '</em>' : '')
+        + '<span>' + (isNum
+          ? (/^hunhuan/.test(id) ? '魂环牌价 = 年限数值，可自行调整' : '轮回商店默认价，可自行调整')
+          : '负面 / 控制类，商店默认不卖') + '</span></div>';
+    }
     html += '<div class="detail-sec"><h5>机制（简单）</h5><ul>';
     for (var i = 0; i < d.mech.length; i++) html += '<li>' + rich(d.mech[i]) + '</li>';
     html += '</ul></div>';
@@ -865,7 +921,97 @@
     if (el) lastFocus = el;
   }, true);
 
+  /* ---------- ⑦ 轮回币价目表（「系统功能」模块里那张表由这里渲染） ---------- */
+  // 本模组 25 件直接读上面的 PRICES；下面是原版有益特质 58 件：价格档位 → [名字, 特质 id]
+  var TRAIT_TIERS = [
+    { v: 10000, list: [['超级生命', 'super_health'], ['天选者', 'chosen_one']] },
+    { v: 5000, list: [['祝福', 'blessed'], ['不朽', 'immortal']] },
+    { v: 3000, list: [['免疫', 'immune'], ['治愈光环', 'healing_aura']] },
+    { v: 2000, list: [['再生', 'regeneration']] },
+    { v: 1000, list: [
+      ['幸运', 'lucky'], ['通电', 'energized'], ['食肉者', 'flesh_eater'],
+      ['偏转抛射物', 'deflect_projectile'], ['防护罩', 'bubble_defense'], ['天才', 'genius']
+    ] },
+    { v: 500, list: [
+      ['强硬', 'tough'], ['荆棘', 'thorns'], ['毒牙', 'venomous'], ['阻挡', 'block'],
+      ['闪避', 'dodge'], ['兴旺', 'fertile'], ['野心', 'ambitious'], ['泰坦之肺', 'titan_lungs'],
+      ['巫师之心', 'heart_of_wizard'], ['阳光普照', 'sunblessed'], ['猎巫人', 'mageslayer'],
+      ['屠龙者', 'dragonslayer']
+    ] },
+    { v: 300, list: [
+      ['鹰眼', 'eagle_eyed'], ['战斗反应', 'battle_reflexes'], ['奥术反射', 'arcane_reflexes'],
+      ['冲刺', 'dash'], ['后闪', 'backstep'], ['长寿', 'long_liver'],
+      ['崇尚和平', 'pacifist'], ['优雅', 'attractive']
+    ] },
+    { v: 200, list: [
+      ['纵火狂人', 'pyromaniac'], ['爆破鬼才', 'bomberman'], ['野蛮', 'savage'],
+      ['坚忍', 'strong_minded'], ['闪亮', 'shiny'], ['怦然心动', 'mega_heartbeat']
+    ] },
+    { v: 100, list: [
+      ['健壮', 'strong'], ['月之子', 'moonchild'], ['夜之子', 'nightchild'], ['坚韧皮肤', 'hard_skin'],
+      ['迅捷', 'fast'], ['敏捷', 'agile'], ['活力增强', 'boosted_vitality'], ['巨大', 'giant'],
+      ['老将', 'veteran'], ['明智', 'wise'], ['诚实', 'honest'], ['安分', 'content'],
+      ['抗火', 'fire_proof'], ['防冻', 'freeze_proof'], ['耐酸', 'acid_proof'], ['免疫中毒', 'poison_immune']
+    ] },
+    { v: 50, list: [['金牙', 'golden_tooth'], ['明灯', 'light_lamp'], ['矿工', 'miner']] }
+  ];
+
+  function renderPriceBoard() {
+    var modHost = document.getElementById('modPriceList');
+    var traitHost = document.getElementById('traitPriceList');
+
+    if (modHost) {
+      var rows = [];
+      for (var k in PRICES) {
+        if (!Object.prototype.hasOwnProperty.call(PRICES, k)) continue;
+        if (typeof PRICES[k] !== 'number') continue;   // 「不上架」的 6 个状态不进价目表
+        rows.push({ name: (DETAILS[k] && DETAILS[k].name) || k, price: PRICES[k] });
+      }
+      rows.sort(function (a, b) { return b.price - a.price; });
+      var h = '';
+      for (var i = 0; i < rows.length; i++) {
+        h += '<div class="pricerow"><span class="pr-name">' + esc(rows[i].name) + '</span>'
+          + '<span class="pr-val">' + fmt(rows[i].price) + '<em>轮回币</em></span></div>';
+      }
+      modHost.innerHTML = h;
+    }
+
+    if (traitHost) {
+      var t = '';
+      for (var a = 0; a < TRAIT_TIERS.length; a++) {
+        t += '<div class="pricetier"><div class="pt-v">' + fmt(TRAIT_TIERS[a].v) + '<em>轮回币</em></div><div class="pt-l">';
+        for (var b = 0; b < TRAIT_TIERS[a].list.length; b++) {
+          t += '<span class="traitpill">' + esc(TRAIT_TIERS[a].list[b][0])
+            + '<i>' + esc(TRAIT_TIERS[a].list[b][1]) + '</i></span>';
+        }
+        t += '</div></div>';
+      }
+      traitHost.innerHTML = t;
+    }
+  }
+
+  /* ---------- ⑥-4 把「建议价」直接印在图鉴卡片上（不用点进去就能看见） ---------- */
+  // 价格只有一处真源 = 上面的 PRICES，所以卡片上这行与点进去的详情、与价目表永远一致。
+  function paintCardPrices() {
+    var cards = document.querySelectorAll('.item[data-detail]');
+    for (var i = 0; i < cards.length; i++) {
+      var card = cards[i];
+      if (card.querySelector('.item-price')) continue;   // 已经印过就不重复
+      var p = PRICES[card.getAttribute('data-detail')];
+      if (p === undefined) continue;
+      var isNum = typeof p === 'number';
+      var el = document.createElement('div');
+      el.className = 'item-price' + (isNum ? '' : ' is-off');
+      el.innerHTML = '<span class="ip-label">建议价</span><b>' + (isNum ? fmt(p) : esc(p)) + '</b>'
+        + (isNum && wan(p) ? '<em>' + wan(p) + '</em>' : '')
+        + '<span class="ip-unit">' + (isNum ? '轮回币' : '商店默认不卖') + '</span>';
+      card.appendChild(el);
+    }
+  }
+
   /* ---------- ⑤ 初始化 ---------- */
   // 没写 hash = 显示首页；写了（比如别人发来的 .../#mods）= 直接打开那个模块
+  renderPriceBoard();
+  paintCardPrices();
   showView(viewFromHash());
 })();

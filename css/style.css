@@ -226,6 +226,24 @@ a{ color:inherit; text-decoration:none; }
   color:var(--qc); border:1px solid var(--qc); background:rgba(255,255,255,.04);
 }
 
+/* 图鉴卡片上的「建议价」——不用点进去就能看见（由 js 注入，价格只有一处真源 PRICES） */
+.item-price{
+  margin-top:12px; padding:6px 10px; border-radius:9px;
+  display:flex; align-items:baseline; gap:7px; flex-wrap:wrap;
+  font-size:13px; line-height:1.5;
+  background:linear-gradient(90deg,rgba(245,196,81,.13),rgba(245,196,81,.02));
+  border:1px solid rgba(245,196,81,.35);
+}
+.item-price .ip-label{ font-size:11.5px; color:var(--muted); letter-spacing:.5px; }
+.item-price b{ color:var(--gold); font-size:15px; letter-spacing:.4px; }
+.item-price em{ font-style:normal; font-size:12px; color:var(--gold-2); }
+.item-price .ip-unit{ font-size:11px; color:var(--muted); }
+.item-price.is-off{
+  background:linear-gradient(90deg,rgba(224,72,60,.13),rgba(224,72,60,.02));
+  border-color:rgba(224,72,60,.4);
+}
+.item-price.is-off b{ color:#ff8f86; font-size:13.5px; }
+
 /* ===================== 系统功能 ===================== */
 .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
 /* 小节标题（同一模块内再分块，如「属性判定」） */
@@ -445,4 +463,72 @@ a{ color:inherit; text-decoration:none; }
   .detail-mask{ padding:14px; }
   .detail-card{ padding:22px 18px 18px; max-height:calc(100vh - 28px); }
   .detail-head img{ width:44px; height:44px; }
+}
+
+/* ===================== 详情弹层里的「建议价」 ===================== */
+.detail-price{
+  margin-top:14px; padding:11px 14px; border-radius:10px;
+  font-size:14px; color:#dfe4ec; line-height:1.6;
+  background:linear-gradient(90deg,rgba(245,196,81,.14),rgba(245,196,81,.02));
+  border:1px solid rgba(245,196,81,.45);
+}
+.detail-price b{ color:var(--gold); font-size:17px; letter-spacing:.5px; }
+.detail-price em{ font-style:normal; margin-left:6px; font-size:13px; color:var(--gold-2); }
+.detail-price span{ display:block; margin-top:2px; font-size:12px; color:var(--muted); }
+.detail-price.is-off{
+  background:linear-gradient(90deg,rgba(224,72,60,.14),rgba(224,72,60,.02));
+  border-color:rgba(224,72,60,.45);
+}
+.detail-price.is-off b{ color:#ff8f86; }
+
+/* ===================== 轮回币价目表 ===================== */
+.priceboard{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.priceblock{
+  background:linear-gradient(180deg,var(--panel),var(--panel-2));
+  border:1px solid var(--line); border-radius:var(--radius); padding:20px;
+}
+.priceblock-h{
+  margin:0 0 14px; font-size:17px; letter-spacing:.5px;
+  display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+}
+.priceblock-h span{ font-size:12.5px; font-weight:400; color:var(--muted); }
+.pricelist{ display:grid; gap:6px; }
+.pricerow{
+  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  padding:6px 10px; border-radius:9px; background:rgba(255,255,255,.03);
+}
+.pricerow:nth-child(odd){ background:rgba(255,255,255,.06); }
+.pr-name{ font-size:13.8px; color:#c8ced9; }
+.pr-val{ font-size:13.6px; font-weight:700; color:var(--gold-2); white-space:nowrap; }
+.pr-val em{ font-style:normal; margin-left:4px; font-size:11.5px; font-weight:400; color:var(--muted); }
+.pricetiers{ display:grid; gap:11px; }
+.pricetier{ display:grid; grid-template-columns:78px 1fr; gap:12px; align-items:start; }
+.pt-v{
+  padding-top:3px; text-align:right; white-space:nowrap;
+  font-size:13px; font-weight:700; color:var(--gold-2);
+}
+.pt-v em{ display:block; font-style:normal; font-size:10.5px; font-weight:400; color:var(--muted); }
+.pt-l{ display:flex; flex-wrap:wrap; gap:6px; }
+.traitpill{
+  font-size:12.5px; padding:3px 9px; border-radius:999px;
+  border:1px solid var(--line); background:rgba(255,255,255,.03); color:#c8ced9;
+}
+.traitpill i{ font-style:normal; margin-left:5px; font-size:10.5px; color:#7d8698; }
+.pricenotes{
+  margin-top:22px; padding:18px 20px; border-radius:var(--radius);
+  background:rgba(245,196,81,.05); border:1px solid rgba(245,196,81,.22);
+}
+.pricenotes h4{ margin:0 0 8px; font-size:15px; color:var(--gold-2); letter-spacing:.5px; }
+.pricenotes h4:not(:first-child){ margin-top:18px; }
+.pricenotes ul{ margin:0; padding-left:20px; font-size:13.6px; color:#c3cad6; line-height:1.75; }
+.pricenotes li{ margin-bottom:7px; }
+.pricenotes b{ color:var(--gold-2); }
+
+@media (max-width:900px){
+  .priceboard{ grid-template-columns:1fr; }
+}
+@media (max-width:520px){
+  .pricetier{ grid-template-columns:1fr; gap:6px; }
+  .pt-v{ text-align:left; }
+  .pt-v em{ display:inline; margin-left:4px; }
 }

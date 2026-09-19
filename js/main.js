@@ -1042,27 +1042,105 @@
     html += '<div class="detail-sec"><h5>③ 怎么改（两个入口）</h5><ul>';
     for (var k = 0; k < MOD_HOW.length; k++) html += '<li>' + rich(MOD_HOW[k]) + '</li>';
     html += '</ul></div>';
+    // ④ 源码实测的键名清单（由 js/modkeys.js 生成，逐条来自该模组自己的源码）
+    try {
+      var mk = (typeof MODKEYS !== 'undefined' && MODKEYS) ? MODKEYS[id] : null;
+      if (mk && mk.length) {
+        html += '<div class="detail-sec"><h5>④ 源码实测：可改的键名（' + mk.length + ' 条）</h5><ul class="keylist">';
+        for (var m = 0; m < mk.length; m++) {
+          var rowK = mk[m];
+          html += '<li>' + key(rowK[0])
+            + (rowK[1] ? (' <b>' + esc(rowK[1]) + '</b>') : '')
+            + (rowK[2] ? (' —— ' + rich(rowK[2])) : '')
+            + '</li>';
+        }
+        html += '</ul><p class="detail-note">★ 这一节是从该模组<b>自己的源码</b>里抽出来的键名（中文说明与范围取源码注释），可以直接在「＋ 添加属性」里选中并填数字。清单里没有的键名，用搜索框右边的「<b>自定义</b>」手打键名也能加。</p></div>';
+      }
+    } catch (err) { }
     html += '<p class="detail-src">' + rich(d.sub) + '<br>' + rich(d.src) + '</p>';
     openDetailCard(html);
+  }
+
+  /* ---------- ⑥ 通用「点卡片看详情」 ---------- */
+  //  卡片外面只给名字 + 一行基本信息，点进去才是完整内容。
+  //  · 已经写好详情页的（data-detail / data-mod）走各自的详情；
+  //  · 其余卡片（首页数字与图 / 核心玩法 / 快速上手 / 系统功能 / 联动模组）由这里**现取卡片自己的 DOM** 生成弹层，
+  //    所以以后往页面里加新卡片也自动可点，不用再逐个写详情。
+  var AUTO_SEL = '.card, .modcard, .item, .feat, .steps li, .hero-stats li, .warn, .hero-art img';
+  function autoImg(el) {
+    if (!el) return null;
+    if (el.tagName === 'IMG') return el;
+    var i = el.querySelector('img');
+    return i;
+  }
+  function openAutoDetail(el) {
+    try {
+      var img = autoImg(el);
+      var titleEl = el.querySelector('h2, h3, h4');
+      var title = titleEl ? titleEl.textContent.trim() : (el.getAttribute('alt') || '详情');
+      var subEl = el.querySelector('.card-sub, .tiny');
+      var sub = subEl ? subEl.innerHTML : '';
+      var body = document.createElement('div');
+      var nodes = el.querySelectorAll('ul, ol, p, table');
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        if (titleEl && n.contains(titleEl)) continue;
+        if (subEl && n.contains(subEl)) continue;
+        if (n === subEl) continue;
+        body.appendChild(n.cloneNode(true));
+      }
+      var inner = body.innerHTML;
+      if (!inner) inner = '<p>' + esc((el.textContent || '').replace(/\s+/g, ' ').trim()) + '</p>';
+      var html = '<div class="detail-head' + (img ? '' : ' no-img') + '">'
+        + (img ? '<img src="' + esc(img.getAttribute('src')) + '" alt="">' : '')
+        + '<div><h3>' + esc(title) + '</h3>'
+        + (sub ? '<p class="detail-sub">' + sub + '</p>' : '')
+        + '</div></div>'
+        + '<div class="detail-sec auto-detail">' + inner + '</div>';
+      openDetailCard(html);
+    } catch (err) { }
+  }
+  // 给所有还没绑详情的卡片加上「可点」的样子 + 键盘可达
+  function bindAutoCards() {
+    var els = document.querySelectorAll(AUTO_SEL);
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      if (el.hasAttribute('data-detail') || el.hasAttribute('data-mod')) continue;
+      if (el.tagName === 'A' || el.tagName === 'BUTTON') continue;
+      el.classList.add('is-clickable');
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+      if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
+    }
   }
 
   // 点卡片 / 点图标都能开；键盘 Tab 聚焦、Enter / Space 打开
   document.addEventListener('click', function (e) {
     var t = e.target;
-    var el = t && t.closest ? t.closest('[data-detail],[data-mod]') : null;
-    if (!el) return;
-    if (el.hasAttribute('data-detail')) openItem(el.getAttribute('data-detail'));
-    else openMod(el.getAttribute('data-mod'));
+    if (!t || !t.closest) return;
+    var el = t.closest('[data-detail],[data-mod]');
+    if (el) {
+      if (el.hasAttribute('data-detail')) openItem(el.getAttribute('data-detail'));
+      else openMod(el.getAttribute('data-mod'));
+      return;
+    }
+    // 链接 / 按钮 / 页签 / 回到顶部 都有自己的行为，不抢
+    if (t.closest('a, button, .tab, .totop')) return;
+    var au = t.closest(AUTO_SEL);
+    if (au) openAutoDetail(au);
   });
   document.addEventListener('keydown', function (e) {
     var t = e.target;
     if (!t || !t.closest) return;
-    var el = t.closest('[data-detail],[data-mod]');
-    if (!el) return;
     if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
-    e.preventDefault();
-    if (el.hasAttribute('data-detail')) openItem(el.getAttribute('data-detail'));
-    else openMod(el.getAttribute('data-mod'));
+    var el = t.closest('[data-detail],[data-mod]');
+    if (el) {
+      e.preventDefault();
+      if (el.hasAttribute('data-detail')) openItem(el.getAttribute('data-detail'));
+      else openMod(el.getAttribute('data-mod'));
+      return;
+    }
+    var au = t.closest(AUTO_SEL);
+    if (au) { e.preventDefault(); openAutoDetail(au); }
   });
 
   dlgClose.addEventListener('click', function () { closeDetail(); });
@@ -1177,5 +1255,6 @@
   // 没写 hash = 显示首页；写了（比如别人发来的 .../#mods）= 直接打开那个模块
   renderPriceBoard();
   paintCardPrices();
+  bindAutoCards();          // 让所有卡片都能点开看详情（外面只有名字 + 一行基本信息）
   showView(viewFromHash());
 })();

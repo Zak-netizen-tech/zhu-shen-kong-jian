@@ -349,9 +349,26 @@ table.tbl .hl{ color:var(--gold); font-weight:700; }
 .is-clickable{ cursor:pointer; transition:transform .2s, border-color .2s, box-shadow .2s; }
 .is-clickable:hover{ transform:translateY(-3px); border-color:rgba(245,196,81,.45); box-shadow:0 14px 30px rgba(0,0,0,.45); }
 .is-clickable:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+/* 卡片正面只留「名字 + 简单描述」：正文在卡面截成 2 行，完整内容点开看（用户要求） */
+.modcard p, .feat p, .item p, .steps li p{
+  display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden;
+  -webkit-line-clamp:2; line-clamp:2;
+}
+/* 悬浮时右下角提示一句 */
+.open-hint{
+  position:absolute; right:10px; bottom:6px; font-size:11px; color:var(--gold);
+  opacity:0; transition:opacity .2s; pointer-events:none; letter-spacing:.5px;
+}
+.is-clickable:hover .open-hint, .is-clickable:focus-visible .open-hint{ opacity:.85; }
+.feat, .steps li{ position:relative; }
+/* 图鉴卡片底部有"建议价"和品级色条，提示挪到右上角免得压字 */
+.item .open-hint{ top:8px; bottom:auto; }
 .auto-detail ul{ margin:0; padding-left:18px; color:#c8ced9; font-size:14px; }
 .auto-detail li{ margin-bottom:8px; }
 .auto-detail p{ margin:0 0 10px; font-size:14px; color:#c8ced9; }
+.auto-detail dl{ margin:0; }
+.auto-detail dt{ color:var(--muted); font-size:12.5px; margin-top:8px; }
+.auto-detail dd{ margin:2px 0 0; color:#c8ced9; font-size:14px; }
 .auto-detail table{ width:100%; border-collapse:collapse; font-size:13px; }
 .auto-detail th, .auto-detail td{ padding:6px 8px; border-bottom:1px solid var(--line); text-align:left; }
 /* 模组详情里「④ 源码实测键名」那张清单 */

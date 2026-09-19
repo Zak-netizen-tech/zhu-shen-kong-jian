@@ -1066,22 +1066,76 @@
   //  · 已经写好详情页的（data-detail / data-mod）走各自的详情；
   //  · 其余卡片（首页数字与图 / 核心玩法 / 快速上手 / 系统功能 / 联动模组）由这里**现取卡片自己的 DOM** 生成弹层，
   //    所以以后往页面里加新卡片也自动可点，不用再逐个写详情。
-  var AUTO_SEL = '.card, .modcard, .item, .feat, .steps li, .hero-stats li, .warn, .hero-art img';
+  var AUTO_SEL = '.card, .modcard, .item, .feat, .qa, .steps li, .hero-stats li, .warn, .hero-art img';
+  // 首页那几张图点的是"图标"本身 —— 手工指到它对应的那张卡片（否则只能显示 alt 文字）
+  var IMG_ALIAS = {
+    'img/mod-icon.png': '关于模组',
+    'img/observer-body.png': '观察者',
+    'img/observer-icon.png': '观察者',
+    'img/reincarnator.png': '轮回者',
+    'img/space-icon.png': '轮回空间',
+    'img/shop.png': '轮回商店',
+    'img/erase.png': '抹除存在',
+    'img/extinction.png': '灭绝书',
+    'img/totem.png': '不死图腾'
+  };
   function autoImg(el) {
     if (!el) return null;
     if (el.tagName === 'IMG') return el;
     var i = el.querySelector('img');
     return i;
   }
+  // 按标题关键词找那张卡片
+  function findCardByTitle(want, el) {
+    if (!want) return null;
+    var cands = document.querySelectorAll(AUTO_SEL);
+    for (var i = 0; i < cands.length; i++) {
+      var d = cands[i];
+      if (d.tagName === 'IMG' || d === el || d.contains(el) || d.closest('.hero-art')) continue;
+      var t = d.querySelector('h2, h3, h4');
+      var txt = t ? t.textContent.trim() : '';
+      if (!txt) continue;
+      if (txt.indexOf(want) >= 0 || want.indexOf(txt) >= 0) return d;
+    }
+    return null;
+  }
+  // 「图标」→ 它代表的那张卡片（首页主神图标 / 观察者图 / 轮回者小图 都走这里）
+  function findRelatedCard(el) {
+    try {
+      var img = autoImg(el);
+      var src = img ? (img.getAttribute('src') || '') : '';
+      var alt = img ? (img.getAttribute('alt') || '').trim() : '';
+      var inHero = !!(el.closest && el.closest('.hero-art'));
+      if (inHero) {
+        var byAlias = findCardByTitle(IMG_ALIAS[src] || alt, el);
+        if (byAlias) return byAlias;
+      }
+      if (src) {   // 用同一个图标的那张卡
+        var cands = document.querySelectorAll(AUTO_SEL);
+        for (var i = 0; i < cands.length; i++) {
+          var c = cands[i];
+          if (c.tagName === 'IMG' || c === el || c.contains(el) || c.closest('.hero-art')) continue;
+          var ci = c.querySelector('img');
+          if (ci && ci.getAttribute('src') === src) return c;
+        }
+      }
+      return findCardByTitle(IMG_ALIAS[src] || alt, el);
+    } catch (err) { return null; }
+  }
   function openAutoDetail(el) {
     try {
+      // 点在首页那几张图上 → 改成打开它对应的卡片（图标本身没有正文可看）
+      if (el && el.tagName === 'IMG') {
+        var rel = findRelatedCard(el);
+        if (rel) el = rel;
+      }
       var img = autoImg(el);
       var titleEl = el.querySelector('h2, h3, h4');
       var title = titleEl ? titleEl.textContent.trim() : (el.getAttribute('alt') || '详情');
       var subEl = el.querySelector('.card-sub, .tiny');
       var sub = subEl ? subEl.innerHTML : '';
       var body = document.createElement('div');
-      var nodes = el.querySelectorAll('ul, ol, p, table');
+      var nodes = el.querySelectorAll('ul, ol, p, table, dl');
       for (var i = 0; i < nodes.length; i++) {
         var n = nodes[i];
         if (titleEl && n.contains(titleEl)) continue;
@@ -1110,6 +1164,22 @@
       el.classList.add('is-clickable');
       if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
       if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
+      // 卡片右下角挂一句「点开看全部」（只有卡片类型挂，数字/图片不挂）
+      if (el.matches && el.matches('.card, .modcard, .feat, .item, .steps li') && !el.querySelector('.open-hint')) {
+        var hint = document.createElement('span');
+        hint.className = 'open-hint';
+        hint.textContent = '点开看全部 ›';
+        el.appendChild(hint);
+      }
+    }
+    // 图鉴卡片本来就是可点的（走各自的详情），也补一句提示
+    var items = document.querySelectorAll('.item[data-detail]');
+    for (var j = 0; j < items.length; j++) {
+      if (items[j].querySelector('.open-hint')) continue;
+      var h2 = document.createElement('span');
+      h2.className = 'open-hint';
+      h2.textContent = '点开看全部 ›';
+      items[j].appendChild(h2);
     }
   }
 

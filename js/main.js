@@ -774,6 +774,158 @@
       effect: '开关类直接决定它那套体系的行为（城市能不能投降、体系能不能继承、武器掉不掉耐久）；那批属性往商品上一加，就等于给穿着这件商品的人换/加一份该模组的战斗数值。开关保存后要重启游戏才生效；「＋ 添加属性」立刻生效。',
       src: '来源：mods_config\\INMNY_CUSTOMMODT001_CUSTOM.config；源码 Source\\Stats.cs（属性键名 = 它自己的 asset_id_prefix + 字段名）；中文名取 Locales\\locale.csv。'
     },
+    zhutian: {
+      name: '诸天神座 v0.1.0', img: 'img/mods/zhutian.png',
+      sub: '数值归属：主神空间▪万界 源码 Code\\轮回者\\ZhaKeReincarnationSpace.cs 的 ModDataPrefixes 表（zhutianshenzuo. → 诸天）',
+      what: [
+        ['zhutianshenzuo.*', '单位数据键（万象之命 / 能 / 功业 / 道途 / 词条）', '这些键写在单位 Actor.data 上，游戏里会被自动枚举出来 —— 在「＋ 添加属性」页选中它、填「增加数值」再点「添加」就写进商品'],
+        ['mods_config\\ZHUTIANSHENZUO.config', '它自己的 NML 配置表', '走「其它模组数值」页改：数值项点行改数字点保存、开关项点一下即切换；保存后重启游戏生效']
+      ],
+      effect: '把它的数据键加进商品 = 穿着这件商品的人直接获得/改写那一项诸天数值；改它的 .config = 改它整套系统在下一局启动时的设置。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表（键前缀与中文归属）；配置文件列表取自本机 mods_config 目录。数据键的具体中文名以游戏内「＋ 添加属性」页为准。'
+    },
+    zhanshen: {
+      name: '斩神录 v1.0', img: 'img/mods/zhanshen.png',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（zhanshenlu. → 斩神录）',
+      what: [
+        ['zhanshenlu.*', '单位数据键', '神墟境界经验 / 变体 / 渡劫 / 疯狂值 / 共鸣城市 / 神明青睐 —— 单位 Actor.data 上的键，自动枚举，选中即可改'],
+        ['mods_config\\ZHANSHENLU.config', '它自己的 NML 配置表', '走「其它模组数值」页改，重启游戏生效']
+      ],
+      effect: '数据键决定这个单位在斩神录里的进度与状态（境界经验、变体、疯狂值…），加进商品就等于把这套进度安到穿着它的人身上；配置表改的是它整套系统的设置。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表；配置文件列表取自本机 mods_config 目录。'
+    },
+    zhetian: {
+      name: '遮天修行录 v3.2.29', img: 'img/mods/zhetian.png',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（zhetian. → 遮天；wushu. → 武极 / 遮天共用）',
+      what: [
+        ['zhetian.*', '单位数据键（帝路 / 禁区 / 黑暗动乱 / 血脉 / 古路…）', '本模组源码注释里标了「180+ 键」—— 全部写在单位 Actor.data 上，游戏里自动枚举，选中即可改'],
+        ['wushu.*', '与「武极寰宇录」共用的那套键', '境界 / 真罡 / 阵纹 / 修为；两个模组都用这个前缀，归属显示为「武极 / 遮天」'],
+        ['（没有 NML 配置表）', '它不提供配置文件', '所以它只能走「＋ 添加属性」这一条路 —— 好在数据键自动枚举，不需要手打键名']
+      ],
+      effect: '把某个 zhetian.* 键加进商品 = 穿着它的人直接拿到那一项进度（帝路 / 禁区 / 血脉…）；数值型键填「增加数值」即可。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表；本机 mods_config 目录下没有它的 .config（确认走数据键）。'
+    },
+    guimi: {
+      name: '诡秘之主-宿命之环 v3.5', img: 'img/mods/guimi.png',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（lotm_ / __ → 诡秘；xulie. → 序列）',
+      what: [
+        ['lotm_* / __*', '单位数据键（途径 / 序列 / 恩赐 / 锚点）', '本模组认领规则里，`lotm_` 前缀与 `__` 双下划线开头的键都算诡秘；写在单位 Actor.data 上，自动枚举'],
+        ['xulie.*', '桥接键（序列 / 理智 / 金榜）', '`xulie.xuLieNum` / `liZhiNum` / `jinBangNum` —— 这是「序列」那套桥接键，诡秘与往生书都会用'],
+        ['mods_config\\XULIE.config', 'NML 配置表（序列那一份）', '★ 这一份是它们的桥接配置；诡秘本体没有独立 .config，主线数值仍在 lotm_ 数据键上']
+      ],
+      effect: '把 lotm_* 键加进商品 = 直接给穿着它的人设上途径 / 序列 / 恩赐这类状态值；同一套键也是本模组「轮回搬运」会一起搬走的键（轮回不丢进度）。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表（含 `lotm_` 与 `__` 双前缀特判）；本机 mods_config 里只找到 XULIE.config，未逐条核对诡秘本体键名。'
+    },
+    longzu: {
+      name: '龙族·血之哀伤', img: 'img/mods/longzu.png',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（longzu. → 龙族）',
+      what: [
+        ['longzu.*', '单位数据键（血统 / 龙位 / 纯度 / 言灵 / 七宗罪 / 天赋）', '写在单位 Actor.data 上，自动枚举；选中 → 填「增加数值」→「添加」即写进商品'],
+        ['（没有 NML 配置表）', '它不提供配置文件', '只能走「＋ 添加属性」；数据键自动枚举，不用手打键名']
+      ],
+      effect: '把 longzu.* 键加进商品 = 穿着它的人直接拿到对应的龙族进度（血统纯度 / 龙位 / 言灵…）；本模组的轮回搬运也会把这些键一起带走。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表；本机 mods_config 下没有它的 .config。'
+    },
+    wuji: {
+      name: '武极寰宇录 v1.9.14', img: 'img/mods/wuji.png',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（wushu. → 武极 / 遮天共用）',
+      what: [
+        ['wushu.*', '单位数据键（境界 / 真罡 / 阵纹 / 修为）', '与遮天修行录共用同一套前缀，归属显示「武极 / 遮天」；自动枚举、选中即可改'],
+        ['（没有 NML 配置表）', '它不提供配置文件', '只能走「＋ 添加属性」']
+      ],
+      effect: '把 wushu.* 键加进商品 = 穿着它的人直接获得那一项武道进度（境界 / 真罡 / 阵纹 / 修为）。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表（注释写明武极与遮天共用）；本机 mods_config 下没有它的 .config。'
+    },
+    xuanmen: {
+      name: '玄门道界-仙玄道 beta1.1.1', img: 'img/mods/xuanmen.png',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（xuanpin. → 玄门）',
+      what: [
+        ['xuanpin.*', '单位数据键（修为 / 道途 / 五韵 / 天劫 / 轮回）', '写在单位 Actor.data 上，自动枚举，选中即可改'],
+        ['mods_config\\XUANMENDAOJIE.config', '它自己的 NML 配置表', '走「其它模组数值」页改，保存后重启游戏生效']
+      ],
+      effect: '数据键 = 这个单位在玄门体系里的进度（道途 / 五韵 / 天劫），加进商品就能把它安到穿着者身上；配置表改它的系统设置。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表；配置文件列表取自本机 mods_config 目录。'
+    },
+    shengwuxue: {
+      name: '生物学 v1.0.9', img: 'img/mods/shengwuxue.png',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（bio_ → 生物学）',
+      what: [
+        ['bio_*', '单位数据键（器官寿命改写等）', '例如 <b>bio_lifespan_override</b>（覆盖该单位各器官的寿命），写在单位 Actor.data 上，自动枚举'],
+        ['mods_config\\信仰芙芙の博士_生物学1_1_0.config', '它自己的 NML 配置表', '走「其它模组数值」页改，保存后重启游戏生效']
+      ],
+      effect: '把 bio_* 键加进商品 = 给穿着它的人改写器官寿命这类数值；配置表则改它整套生物学系统。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表（注释举了 bio_lifespan_override）；配置文件列表取自本机 mods_config 目录。'
+    },
+    kuajie: {
+      name: '跨界之桥（联机）', img: 'img/mods/kuajie.png',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（cw_ → 跨界之桥）',
+      what: [
+        ['cw_*', '单位数据键（穿越者标记 / 远征军团 / 跨世界势力归属）', '写在单位 Actor.data 上，自动枚举，选中即可改'],
+        ['（没有 NML 配置表）', '它不提供配置文件', '只能走「＋ 添加属性」']
+      ],
+      effect: '把 cw_* 键加进商品 = 直接设定这个单位在跨界体系里的身份（是不是穿越者、属于哪支远征军团、跨世界势力归属）。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表；本机 mods_config 下没有它的 .config。'
+    },
+    xihuan: {
+      name: '西幻世界 v0.8.6', img: 'img/mods/xihuan.png',
+      sub: '数值归属：主神空间▪万界 源码 Code\\界面\\ZhaKeOtherModStats.cs 的程序集名表（thefantasyworld / fantasyworld → 西幻世界）',
+      what: [
+        ['MagicDamage_key / MagicResistance_key …', '单位数据键（魔法伤害 / 魔法抗性…）', '西幻是<b>只发 dll</b>、Mods 下没有源码文件夹的模组：它的数值写在单位 Actor.data 上（键名不带模组名），本模组用<b>程序集名</b>通道专门认它'],
+        ['mods_config\\THEFANTASYWORLD.config', '它自己的 NML 配置表', '走「其它模组数值」页改，保存后重启游戏生效']
+      ],
+      effect: '把 MagicDamage_key 这类键加进商品 = 穿着它的人直接获得对应的魔法数值；配置表改它整套体系。',
+      src: '来源：主神空间▪万界 源码 ZhaKeOtherModStats.cs 的 AssemblyNames 表与 DataKey 判定注释（明确举了 MagicDamage_key / MagicResistance_key）；配置文件列表取自本机 mods_config 目录。'
+    },
+    fanren: {
+      name: '凡人修仙传 v0.1.0',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（fanren. → 凡人）',
+      what: [
+        ['fanren.*', '单位数据键（境界 / 修为 / 灵根 / 功法 / 金丹 / 灵力）', '写在单位 Actor.data 上，自动枚举，选中即可改'],
+        ['（没有 NML 配置表）', '它不提供配置文件', '只能走「＋ 添加属性」']
+      ],
+      effect: '把 fanren.* 键加进商品 = 穿着它的人直接获得对应的修仙进度（境界 / 灵根 / 金丹 / 灵力）。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表；本机 mods_config 下没有它的 .config。'
+    },
+    wangshengshu: {
+      name: '往生书 v2.3',
+      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（xulie. → 序列，往生书用它做桥接）',
+      what: [
+        ['xulie.xuLieNum / liZhiNum / jinBangNum', '桥接键（序列 / 理智 / 金榜）', '往生书与「序列 / 金榜」体系联动用的键，写在单位 Actor.data 上，自动枚举'],
+        ['reft.*', '当前世界的活体附身关系', '★ 本模组<b>故意不搬</b>这一组：它记的是"这本书现在附在谁身上"，跟着轮回搬走会错乱（源码注释写明）']
+      ],
+      effect: '改 xulie.* = 直接调这个单位的序列 / 理智 / 金榜数值；reft.* 请不要配到商品上（那是运行时关系，不是属性）。',
+      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表与同文件注释（reft.* 故意不搬）；本机 mods_config 下没有它的 .config。'
+    },
+    xianni: {
+      name: '仙逆·修真世界 v0.4.2', img: 'img/mods/xianni.png',
+      sub: '★ 本机没装这个模组，<b>未逐条核对</b>键名 —— 下面只写它数值会出现在哪一类',
+      what: [
+        ['（认得出就显示）', '注册进属性库的属性', '轮回商店「＋ 添加属性」页里，认得出归属的行会带「（仙逆）」后缀；顶部搜索栏打「仙逆」即可筛出'],
+        ['（认得出就显示）', '写在单位 Actor.data 上的数据键', '同一页的数据键区（行底色略深、右侧标「数据键」），认得出归属的也带「（仙逆）」']
+      ],
+      effect: '2026-09-19 起归属判定不再依赖手写白名单：模组会拿<b>仙逆的文件夹名 / mod.json 的 name、GUID / 它目录下的 dll 名</b>去比属性 id 与数据键，命中就认它 —— 所以装上就能改。',
+      src: '来源：主神空间▪万界 源码 ZhaKeOtherModStats.cs 的 EnsureModTokens / TokenOwner（通用认模组通道）。★ 本机未安装该模组，具体键名以你游戏内「＋ 添加属性」页实际列出的为准。'
+    },
+    guzhenren: {
+      name: '蛊真人·吾命如蛊 v0.35.2', img: 'img/mods/guzhenren.png',
+      sub: '★ 本机没装这个模组，<b>未逐条核对</b>键名 —— 下面只写它数值会出现在哪一类',
+      what: [
+        ['（认得出就显示）', '注册进属性库的属性', '「＋ 添加属性」页里认得出归属的行会带「（蛊真人）」后缀'],
+        ['（认得出就显示）', '写在单位 Actor.data 上的数据键', '同一页的数据键区；认得出归属的也带「（蛊真人）」']
+      ],
+      effect: '同上：通用认模组通道会拿它的文件夹名 / mod.json 的名字与 GUID / dll 名去比，命中就认它。',
+      src: '来源：主神空间▪万界 源码 EnsureModTokens / TokenOwner。★ 本机未安装，具体键名以游戏内为准。'
+    },
+    dengshen: {
+      name: '登神长阶（基因修炼） v0.6.0', img: 'img/mods/dengshen.png',
+      sub: '★ 本机没装这个模组，<b>未逐条核对</b>键名 —— 下面只写它数值会出现在哪一类',
+      what: [
+        ['（认得出就显示）', '注册进属性库的属性', '「＋ 添加属性」页里认得出归属的行会带「（登神长阶）」后缀'],
+        ['（认得出就显示）', '写在单位 Actor.data 上的数据键', '同一页的数据键区；认得出归属的也带「（登神长阶）」']
+      ],
+      effect: '同上：基因 / 血脉那套数值只要落到单位身上或注册进属性库，就会出现在「＋ 添加属性」页并能直接改。',
+      src: '来源：主神空间▪万界 源码 EnsureModTokens / TokenOwner。★ 本机未安装，具体键名以游戏内为准。'
+    },
     self: {
       name: '主神空间▪万界（本模组）', img: 'img/mod-icon.png',
       sub: '本模组自己注册的属性：源码 Code\\内容\\StatsInit.cs',
@@ -868,7 +1020,7 @@
   function openMod(id) {
     var d = MODDETAILS[id];
     if (!d) return;
-    var html = '<div class="detail-head"><img src="' + esc(d.img) + '" alt="' + esc(d.name) + '">'
+    var html = '<div class="detail-head">' + (d.img ? ('<img src="' + esc(d.img) + '" alt="' + esc(d.name) + '">') : '')
       + '<div><h3>' + esc(d.name) + '</h3>'
       + '<p class="detail-sub">轮回商店能改到它的什么</p></div></div>';
     html += '<div class="detail-sec"><h5>① 能改什么（键名 + 中文说明）</h5><ul>';

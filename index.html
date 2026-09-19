@@ -605,7 +605,7 @@
       <article class="modcard reveal">
         <img src="img/mods/longzu.png" alt="龙族">
         <div>
-          <h4>龙族·血之哀伤</h4>
+          <h4>龙族·血之哀伤 v1.2.28</h4>
           <p>血统 / 龙位 / 纯度 / 言灵 / 七宗罪 / 天赋（<b>longzu.*</b>）全部保留。</p>
         </div>
       </article>
@@ -640,7 +640,7 @@
       <article class="modcard reveal">
         <img src="img/mods/kuajie.png" alt="跨界之桥">
         <div>
-          <h4>跨界之桥（联机）</h4>
+          <h4>跨界之桥（CrossWorldBridge） v1.12.0</h4>
           <p>穿越者标记 / 远征军团 / 跨世界势力归属（<b>cw_*</b>）保留；被它<b>带去别的世界</b>的单位不会被误判成死亡。</p>
         </div>
       </article>
@@ -818,9 +818,12 @@
       <article class="modcard reveal" data-mod="longzu" tabindex="0" role="button" aria-label="龙族 可改属性详情">
         <img src="img/mods/longzu.png" alt="龙族">
         <div>
-          <h4>龙族·血之哀伤</h4>
-          <p>单位数据键 <b>longzu.*</b>（血统 / 龙位 / 纯度 / 言灵 / 七宗罪 / 天赋）；
-            <b>没有 NML 配置表</b>。</p>
+          <h4>龙族·血之哀伤 v1.2.28</h4>
+          <p>源码已核对：GUID <b>LONGZU_DRAGON_RAJA</b>，<b>没有 NML 配置表</b>（只能走「＋ 添加属性」）。
+            数据键全在 <b>longzu.*</b>：<b>blood</b> 血统 0~6 / <b>purity</b> 纯度 0~100 / <b>rank</b> 龙位 0~9 /
+            <b>throne</b> 君主席位 / <b>faction</b> 阵营 / <b>sanity</b> 理智 / <b>maxhp</b> 血量上限 /
+            <b>kills</b> 屠龙数 / <b>words</b> 言灵数 / <b>talentPts</b> 与 <b>talent_&lt;id&gt;</b> /
+            <b>sin.*</b>（七宗罪）等，都写在单位身上，自动枚举、选中即可改。</p>
         </div>
       </article>
       <article class="modcard reveal" data-mod="wuji" tabindex="0" role="button" aria-label="武极寰宇录 可改属性详情">
@@ -850,9 +853,12 @@
       <article class="modcard reveal" data-mod="kuajie" tabindex="0" role="button" aria-label="跨界之桥 可改属性详情">
         <img src="img/mods/kuajie.png" alt="跨界之桥">
         <div>
-          <h4>跨界之桥（联机）</h4>
-          <p>单位数据键 <b>cw_*</b>（穿越者标记 / 远征军团 / 跨世界势力归属）；
-            <b>没有 NML 配置表</b>。</p>
+          <h4>跨界之桥（CrossWorldBridge） v1.12.0</h4>
+          <p>源码已核对：GUID <b>CROSSWORLDBRIDGE</b>；另有 NML 配置表 <b>CROSSWORLDBRIDGE.config</b>
+            （<b>9 组约 107 项</b>）。单位数据键：<b>cw_traveler</b> / <b>cw_traveler_world</b> /
+            <b>cw_traveler_name</b>（穿越者）、<b>cw_legion</b> / <b>cw_legion_world</b> / <b>cw_legion_war</b>（远征军团）、
+            <b>cw_faction_origin</b>（跨世界势力归属）。
+            ★ <b>cw_cross_nation</b> 写在<b>国家</b>的 data 上（不是单位），枚举不到 —— 那一条改不了。</p>
         </div>
       </article>
       <article class="modcard reveal" data-mod="xihuan" tabindex="0" role="button" aria-label="西幻世界 可改属性详情">

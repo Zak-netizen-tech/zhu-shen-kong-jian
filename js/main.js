@@ -817,14 +817,20 @@
       src: '来源：主神空间▪万界 源码 ModDataPrefixes 表（含 `lotm_` 与 `__` 双前缀特判）；包内 mod.json 已核对：name 诡秘之主-宿命之环 / ver 3.5 / GUID XULIE，配置表 1 组约 24 项。'
     },
     longzu: {
-      name: '龙族·血之哀伤', img: 'img/mods/longzu.png',
-      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（longzu. → 龙族）',
+      name: '龙族·血之哀伤 v1.2.28', img: 'img/mods/longzu.png',
+      sub: '包内源码已核对：GUID <b>LONGZU_DRAGON_RAJA</b>，37 个 .cs、没有 default_config.json',
       what: [
-        ['longzu.*', '单位数据键（血统 / 龙位 / 纯度 / 言灵 / 七宗罪 / 天赋）', '写在单位 Actor.data 上，自动枚举；选中 → 填「增加数值」→「添加」即写进商品'],
-        ['（没有 NML 配置表）', '它不提供配置文件', '只能走「＋ 添加属性」；数据键自动枚举，不用手打键名']
+        ['longzu.blood / .purity / .rank / .throne', '血统 / 纯度 / 龙位 / 君主席位', '血统 0~6（0 凡人、1~6 = E/D/C/B/A/S）；纯度 0~100（浮点）；龙位 0~9（1~3 龙裔、4~6 龙侯、7~8 君主、9 龙王）；君主席位 0~6'],
+        ['longzu.faction / .sanity / .rage / .rageYears / .rageCd', '阵营 / 理智 / 失控标记与倒计时', '阵营 0 中立 / 1 卡塞尔学院 / 2 蛇岐八家 / 3 龙族；理智 0~100（归零触发失控）；rage 0/1 标记、rageYears 失控剩余年、rageCd 冷却'],
+        ['longzu.maxhp / .kills / .words', '血量上限 / 屠龙数 / 言灵数', 'maxhp 是它自己接管的血量上限；kills 屠龙（击杀）计数；words 已解锁言灵数量'],
+        ['longzu.talentPts / longzu.talent_&lt;id&gt;', '天赋点（未分配）/ 各天赋等级', 'talentPts 是还没花的天赋点；每个天赋是独立一键（talent_ + 天赋 id）'],
+        ['longzu.sin.wrath / .lust / .gluttony / .greed / .sloth / .envy / .pride', '七宗罪（暴怒 / 色欲 / 暴食 / 强欲 / 怠惰 / 嫉妒 / 傲慢）', '七宗罪各自的档位值是独立数据键，写在单位身上'],
+        ['longzu.armor / .trinket / .consumable / .itemGrantCd / .potionCd', '装备与消耗品 / 冷却', '装备的防具、饰品、消耗品 id，以及授予冷却 / 药剂冷却（世界时间）'],
+        ['longzu.quest.&lt;id&gt; / .dpool* / .egg* / .evtcool / .dataVer', '任务标记 / 死亡池 / 龙蛋 / 事件冷却 / 数据版本', '任务完成标记、死亡池（dpool / dpoolBorn / dpoolSource）、龙蛋（eggBorn / eggSource / eggHatched）、事件冷却与存档数据版本'],
+        ['（没有 NML 配置表）', '它不提供配置文件', '所有数值都在单位数据键上 —— 走「＋ 添加属性」，自动枚举、不用手打键名']
       ],
-      effect: '把 longzu.* 键加进商品 = 穿着它的人直接拿到对应的龙族进度（血统纯度 / 龙位 / 言灵…）；本模组的轮回搬运也会把这些键一起带走。',
-      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表；本机 mods_config 下没有它的 .config。'
+      effect: '把 longzu.* 键加进商品 = 穿着它的人直接拿到对应的龙族进度 / 状态（血统纯度、龙位、言灵数、七宗罪、天赋点…）；本模组的轮回搬运也会把这些键一起带走。',
+      src: '来源：龙族·血之哀伤 v1.2.28 包内源码 —— Code\\Util.cs（K_Blood / K_Purity / K_Rank / K_Throne / K_Faction / K_Sanity / K_Rage* / K_MaxHp / K_Kills / K_Words）、Code\\Talents.cs（K_Pts / longzu.talent_）、Code\\SevenSins.cs（longzu.sin.*）、Code\\Items.cs、Code\\DragonCycle.cs、Code\\Deadpool.cs、Code\\Quests.cs、Code\\AwakenEvents.cs；归属前缀见主神空间 ModDataPrefixes 表。'
     },
     wuji: {
       name: '武极寰宇录 v1.9.14', img: 'img/mods/wuji.png',
@@ -857,14 +863,17 @@
       src: '来源：主神空间▪万界 源码 ModDataPrefixes 表（注释举了 bio_lifespan_override）；配置文件列表取自本机 mods_config 目录。'
     },
     kuajie: {
-      name: '跨界之桥（联机）', img: 'img/mods/kuajie.png',
-      sub: '数值归属：主神空间▪万界 源码 ModDataPrefixes 表（cw_ → 跨界之桥）',
+      name: '跨界之桥（CrossWorldBridge） v1.12.0', img: 'img/mods/kuajie.png',
+      sub: '包内源码已核对：GUID <b>CROSSWORLDBRIDGE</b>，38 个 .cs；NML 配置表 9 组约 107 项',
       what: [
-        ['cw_*', '单位数据键（穿越者标记 / 远征军团 / 跨世界势力归属）', '写在单位 Actor.data 上，自动枚举，选中即可改'],
-        ['（没有 NML 配置表）', '它不提供配置文件', '只能走「＋ 添加属性」']
+        ['cw_traveler / cw_traveler_world / cw_traveler_name', '穿越者标记 / 来源世界 / 来源名', '单位数据键：标记这个单位是不是穿越者、从哪个世界来的、原名是什么'],
+        ['cw_legion / cw_legion_world / cw_legion_war', '远征军团 / 军团世界 / 军团战争', '单位数据键：属于哪支远征军团、来自哪个世界、是否在军团战争中'],
+        ['cw_faction_origin', '跨世界势力归属', '单位数据键：这个单位原本属于哪个世界的势力'],
+        ['mods_config\\CROSSWORLDBRIDGE.config', '它自己的 NML 配置表（9 组约 107 项）', '走「其它模组数值」页改：数值项点行改数字点保存、开关项点一下即切换；保存后重启游戏生效'],
+        ['cw_cross_nation / cw_cn_seq / cw_cn_base', '★ 这些写在<b>国家</b>的 data 上（不是单位）', '「＋ 添加属性」只枚举<b>单位</b>的数据键 ⇒ 国家侧那几条**枚举不到、也改不了**（这点和别的模组不同）']
       ],
-      effect: '把 cw_* 键加进商品 = 直接设定这个单位在跨界体系里的身份（是不是穿越者、属于哪支远征军团、跨世界势力归属）。',
-      src: '来源：主神空间▪万界 源码 ModDataPrefixes 表；本机 mods_config 下没有它的 .config。'
+      effect: '把 cw_traveler* / cw_legion* 这类键加进商品 = 直接设定这个单位在跨界体系里的身份（是不是穿越者、属于哪支远征军团、跨世界势力归属）；配置表则改它整套联机/远征设置。',
+      src: '来源：跨界之桥 v1.12.0 包内源码 —— Code\\Spawner.cs（KeyTraveler / KeyTravelerOriginWorld / KeyTravelerOriginName / KeyLegion / KeyLegionWorld / KeyLegionWar / KeyFactionOrigin）、Code\\CrossNation.cs（KeyNation = cw_cross_nation，写在 kingdom.data）、Code\\CrossLineage.cs（cw_cn_seq / cw_cn_base）、Code\\Ui.cs；配置文件项数取自包内 default_config.json。'
     },
     xihuan: {
       name: '西幻世界 v0.8.6', img: 'img/mods/xihuan.png',

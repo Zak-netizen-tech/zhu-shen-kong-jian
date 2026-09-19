@@ -75,8 +75,8 @@
         <h3>轮回者</h3>
         <p class="card-sub">被选中的单位 · 一阶 ~ 十阶</p>
         <ul class="list">
-          <li>每隔 <b>30 年</b>（可调 1~100）生成一只<b>挑战骷髅</b>，属性 1:1 复刻 × 档位系数，<b>5 年内打死</b>即完成。</li>
-          <li>完成奖励永久增加 <b>伤害 / 生命 / 攻速 / 移速 / 寿命 / 防御值 / 免伤 / 破免伤</b> 与轮回币，加成随阶数翻倍。</li>
+          <li>每隔 <b>10 年</b>（可调 1~100）接一次任务：默认<b>直接发奖</b>；打开「生成骷髅」则改成生成一只<b>挑战骷髅</b>，属性 1:1 复刻 × 档位系数，<b>5 年内打死</b>即完成。</li>
+          <li>完成奖励永久增加 <b>伤害 / 生命 / 攻速 / 移速 / 寿命 / 防御值 / 免伤 / 破免伤</b> 与轮回币，全部按<b>阶数加成</b>放大（一阶 ×1 → 十阶 ×50000）。</li>
           <li>击杀任何生物都掉 <b>轮回币</b>与经验；击杀轮回者还能收割对方一半轮回消耗、并按比例掠夺其数值。</li>
         </ul>
       </article>
@@ -97,12 +97,80 @@
         <h3>轮回商店</h3>
         <p class="card-sub">你自己上架、自己定价</p>
         <ul class="list">
-          <li>点空白格「添加」→ 选特质 → 填价格 → 选品质；第一次打开时<b>物品页已铺好 7 枚魂环</b>。</li>
+          <li>点空白格「添加」→ 选特质 → 填价格 → 选品质；第一次打开时<b>已按建议价铺好 25 件本模组内容</b>（原版特质那一组默认不铺）。</li>
           <li>轮回者被记入轮回空间的那一刻<b>自动消费一次</b>：只买 1 件，买得起里品质最高的那件，复活时一起穿上。</li>
           <li><b>互斥组</b>只留最高档（魂环链条、写轮眼链条），被顶掉的那件按售价<b>退还轮回币</b>。</li>
           <li>「自定义数值」里还能<b>给商品改名</b>：改完商店、特质栏、提示框全都跟着变。</li>
         </ul>
       </article>
+    </div>
+
+    <h3 class="subhead">轮回者数值速查</h3>
+    <p class="section-sub" style="margin-bottom:6px">
+      默认配置：<b>十年一次任务</b>、三个倍率都 ×1。级别每轮重掷（D 50% / C 25% / B 15% / A 7% / S 3%），
+      下表是加权后的<b>期望值</b>；窄屏可以左右滑动表格。
+    </p>
+
+    <div class="tblwrap">
+      <div class="tbl-cap">① 每次任务的<b>基数</b>期望（还要再乘阶数加成；攻速为加进面板的数值）</div>
+      <table class="tbl wide">
+        <thead>
+          <tr><th>任务级别</th><th>伤害 / 经验 / 轮回币 / 寿命</th><th>生命</th><th>攻速</th><th>移速</th><th>防御值</th><th>免伤 / 破免伤</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>D 级（50%）</th><td>1.5</td><td>7.5</td><td>0.125</td><td>1</td><td>10% 概率 +1</td><td>—</td></tr>
+          <tr><th>C 级（25%）</th><td>3.5</td><td>15</td><td>0.35</td><td>1.5</td><td>30% 概率 +2</td><td>—</td></tr>
+          <tr><th>B 级（15%）</th><td>7.5</td><td>30</td><td>0.75</td><td>3</td><td>60% 概率 +4</td><td>—</td></tr>
+          <tr><th>A 级（7%）</th><td>12.5</td><td>50</td><td>1.5</td><td>5</td><td>90% 概率 +8</td><td>5% 概率各 +1%</td></tr>
+          <tr><th>S 级（3%）</th><td>22.5</td><td>90</td><td>4</td><td>9</td><td>100% 概率 +16</td><td>10% 概率各 +2%</td></tr>
+          <tr><th>加权期望</th><td class="hl">4.3</td><td class="hl">18.2</td><td class="hl">0.4875</td><td class="hl">1.945</td><td class="hl">1.544</td><td class="hl">0.0095%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tblwrap">
+      <div class="tbl-cap">② 每一阶<b>完成一次任务</b>的期望收益（基数 × 阶数加成）</div>
+      <table class="tbl wide">
+        <thead>
+          <tr><th>项目</th><th>一阶 ×1</th><th>二阶 ×2</th><th>三阶 ×5</th><th>四阶 ×15</th><th>五阶 ×40</th><th>六阶 ×100</th><th>七阶 ×300</th><th>八阶 ×800</th><th>九阶 ×2000</th><th>十阶 ×50000</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>轮回币</th><td>4.3</td><td>8.6</td><td>21.5</td><td>64.5</td><td>172</td><td>430</td><td>1,290</td><td>3,440</td><td>8,600</td><td class="hl">21.5万</td></tr>
+          <tr><th>伤害</th><td>4.3</td><td>8.6</td><td>21.5</td><td>64.5</td><td>172</td><td>430</td><td>1,290</td><td>3,440</td><td>8,600</td><td class="hl">21.5万</td></tr>
+          <tr><th>经验</th><td>4.3</td><td>8.6</td><td>21.5</td><td>64.5</td><td>172</td><td>430</td><td>1,290</td><td>3,440</td><td>8,600</td><td class="hl">21.5万</td></tr>
+          <tr><th>生命</th><td>18.2</td><td>36.4</td><td>91</td><td>273</td><td>728</td><td>1,820</td><td>5,460</td><td>14,560</td><td>36,400</td><td class="hl">91万</td></tr>
+          <tr><th>攻速</th><td>0.49</td><td>0.98</td><td>2.44</td><td>7.31</td><td>19.5</td><td>48.75</td><td>146.3</td><td>390</td><td>975</td><td>24,375</td></tr>
+          <tr><th>移速</th><td>1.95</td><td>3.89</td><td>9.73</td><td>29.2</td><td>77.8</td><td>194.5</td><td>583.5</td><td>1,556</td><td>3,890</td><td>97,250</td></tr>
+          <tr><th>寿命</th><td>4.3 年</td><td>8.6 年</td><td>21.5 年</td><td>64.5 年</td><td>172 年</td><td>430 年</td><td>1,290 年</td><td>3,440 年</td><td>8,600 年</td><td>21.5 万年</td></tr>
+          <tr><th>防御值</th><td>1.544</td><td>3.09</td><td>7.72</td><td>23.2</td><td>61.8</td><td>154.4</td><td>463.2</td><td>1,235</td><td>3,088</td><td class="hl">77,200</td></tr>
+        </tbody>
+      </table>
+      <p class="tbl-tip">★ <b>免伤 / 破免伤不吃阶数加成</b>：每阶每任务恒为 <b>+0.0095%</b>（只乘配置页「属性倍率」），且两项<b>永远相等</b>（一次抽奖、两项一起给）。</p>
+    </div>
+
+    <div class="tblwrap">
+      <div class="tbl-cap">③ 十年一次任务 → <b>升到各阶要多少年</b>（三倍率 ×1；间隔改成 1 年 → 年数全部 ÷10）</div>
+      <table class="tbl wide">
+        <thead>
+          <tr><th>晋级</th><th>门槛经验</th><th>该阶加成</th><th>每任务期望经验</th><th>期望任务数</th><th>该阶耗时</th><th>累计年数</th><th>到该阶时累计轮回币</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>1 → 2</th><td>100</td><td>×1</td><td>4.3</td><td>23</td><td>233 年</td><td>233 年</td><td>100</td></tr>
+          <tr><th>2 → 3</th><td>900</td><td>×2</td><td>8.6</td><td>105</td><td>1,047 年</td><td>1,280 年</td><td>1,000</td></tr>
+          <tr><th>3 → 4</th><td>8,000</td><td>×5</td><td>21.5</td><td>372</td><td>3,721 年</td><td>5,001 年</td><td>9,000</td></tr>
+          <tr><th>4 → 5</th><td>7.5万</td><td>×15</td><td>64.5</td><td>1,163</td><td>1.16 万年</td><td>1.66 万年</td><td>8.4万</td></tr>
+          <tr><th>5 → 6</th><td>70万</td><td>×40</td><td>172</td><td>4,070</td><td>4.07 万年</td><td>5.73 万年</td><td>78.4万</td></tr>
+          <tr><th>6 → 7</th><td>650万</td><td>×100</td><td>430</td><td>15,116</td><td>15.12 万年</td><td>20.85 万年</td><td>728.4万</td></tr>
+          <tr><th>7 → 8</th><td>6,000万</td><td>×300</td><td>1,290</td><td>46,512</td><td>46.51 万年</td><td>67.36 万年</td><td>6,728.4万</td></tr>
+          <tr><th>8 → 9</th><td>5.5亿</td><td>×800</td><td>3,440</td><td>159,884</td><td>159.88 万年</td><td>227.24 万年</td><td>6.17亿</td></tr>
+          <tr><th>9 → 10</th><td class="hl">50亿</td><td>×2000</td><td>8,600</td><td>581,395</td><td class="hl">581.4 万年</td><td class="hl">808.6 万年</td><td class="hl">56.17亿</td></tr>
+        </tbody>
+      </table>
+      <p class="tbl-tip">
+        ★ 「累计轮回币」<b>正好等于各阶门槛之和</b> —— 因为每任务拿到的币与经验同量级、走同一套阶数加成。
+        对照下面价目表：八阶 6,728.4万 / 九阶 6.17亿 / <b>十阶 56.17亿</b> ⇒ <b>10 亿</b>那件「死亡变强系统」正是十阶的消费目标。<br>
+        ★ 配置页倍率：<b>经验倍率 ×N → 上表耗时 ÷N</b>；<b>属性 / 轮回币倍率 ×N → 收益 ×N</b>（三倍率都拉满时升到十阶约 <b>8.09 万年</b>）。
+      </p>
     </div>
   </div>
 </section>
@@ -123,9 +191,9 @@
 
     <!-- 体质 -->
     <div class="grid4 panel is-on" data-panel="body">
-      <article class="item q-purple reveal" data-detail="rinnegan" tabindex="0" role="button" aria-label="六道轮回眼 详情">
+      <article class="item q-red reveal" data-detail="rinnegan" tabindex="0" role="button" aria-label="六道轮回眼 详情">
         <img src="img/rinnegan.png" alt="六道轮回眼">
-        <h4>六道轮回眼 <span class="chip q-purple">紫</span></h4>
+        <h4>六道轮回眼 <span class="chip q-red">红</span></h4>
         <p>传说中六道仙人的眼睛：攻击命中即天降双陨石（第二颗 3 倍），全属性大幅提升（生命 +50 万/+100%、伤害 +5 万/+100%、防御值 +5 万、<b>免伤 / 破免伤各 +100%</b>、寿命 +1 万年、<b>每秒回血 = 5000 + 最大生命的 20%</b>），可无视地形。</p>
       </article>
       <article class="item q-blue reveal" data-detail="mangekyou" tabindex="0" role="button" aria-label="永恒万花筒写轮眼 详情">
@@ -138,9 +206,9 @@
         <h4>三勾玉轮回眼 <span class="chip q-yellow">黄</span></h4>
         <p>宇智波一族的血脉：生命 / 伤害 / 移速 / 攻速 / 暴击率全面提升，与更高档的眼睛互斥。</p>
       </article>
-      <article class="item q-red reveal" data-detail="shiti" tabindex="0" role="button" aria-label="噬体 详情">
+      <article class="item q-gold reveal" data-detail="shiti" tabindex="0" role="button" aria-label="噬体 详情">
         <img src="img/shiti.png" alt="噬体">
-        <h4>噬体 <span class="chip q-red">红</span></h4>
+        <h4>噬体 <span class="chip q-gold">金</span></h4>
         <p>击杀成长：每次击杀叠加属性、掠夺目标总属性、吞噬其能力；累计击杀还会解锁免伤、无视地形、攻击连锁与免疫负面。</p>
       </article>
       <article class="item q-blue reveal" data-detail="banwen" tabindex="0" role="button" aria-label="斑纹 详情">
@@ -148,19 +216,19 @@
         <h4>斑纹 <span class="chip q-blue">蓝</span></h4>
         <p>燃烧寿命换取全方位增幅：生命 / 伤害各 +2000 且 +200%，移速 / 攻速各 +50 且 +200%；代价是寿命 -20%（有「缘一的体质」时免疫，轮回或重生一次后也自动解除）。</p>
       </article>
-      <article class="item q-purple reveal" data-detail="yuanyi" tabindex="0" role="button" aria-label="缘一的体质 详情">
+      <article class="item q-red reveal" data-detail="yuanyi" tabindex="0" role="button" aria-label="缘一的体质 详情">
         <img src="img/yuanyi.png" alt="缘一的体质">
-        <h4>缘一的体质 <span class="chip q-purple">紫</span></h4>
+        <h4>缘一的体质 <span class="chip q-red">红</span></h4>
         <p>破免伤 +100%、伤害 +10 万且 +500%、生命 +1 万且 +100%，另有免伤 / <b>自身闪避率 +80%</b> / 移速 / 攻速 / 攻击范围加成；自动附带「斑纹」「赫刀」「通透世界」，并免疫斑纹的寿命副作用。<br><span class="tiny">闪避率 = 移速项（自身移速 ÷ 对方移速 × 100 − 100）+ 自身闪避率，封顶 0~100%；掷中即整段无视一次来袭伤害连同附带效果（真理之书与永恒之火无法被闪避）。</span></p>
       </article>
-      <article class="item q-purple reveal" data-detail="muzan" tabindex="0" role="button" aria-label="无惨的体质 详情">
+      <article class="item q-red reveal" data-detail="muzan" tabindex="0" role="button" aria-label="无惨的体质 详情">
         <img src="img/muzan.png" alt="无惨的体质">
-        <h4>无惨的体质 <span class="chip q-purple">紫</span></h4>
+        <h4>无惨的体质 <span class="chip q-red">红</span></h4>
         <p>生命 +10 万且 +100%、<b>寿命 +9 亿年</b>、每秒回复最大生命的 10%，另有伤害 / 免伤 / 破免伤 / 移速 / 攻速 / 攻击范围加成。</p>
       </article>
-      <article class="item q-red reveal" data-detail="sixeyes" tabindex="0" role="button" aria-label="六眼 详情">
+      <article class="item q-gold reveal" data-detail="sixeyes" tabindex="0" role="button" aria-label="六眼 详情">
         <img src="img/sixeyes.png" alt="六眼">
-        <h4>六眼 <span class="chip q-red">红</span></h4>
+        <h4>六眼 <span class="chip q-gold">金</span></h4>
         <p>「天上地下，为我独尊」：生命 +60 万且 +60%、伤害 +6 万且 +60%、防御值 +60 万，另有<b>免伤 / 闪避 / 破免伤各 +600%</b>（免伤无上限＝完全免伤，闪避封顶＝必定闪避）。<br>
           攻击命中时（冷却 1 游戏年）以自身为中心升起<b>直径 50 格的圆形地形框架</b>——内外两圈「山」、中间一圈再叠「光之墙」，范围内的建筑 / 植物 / 道路一律摧毁；圈内生物（自己除外）的 <b>AI 被直接停掉</b>（不动、不打、不干活，不给任何特质/状态），10 秒后地形还原、行动恢复。</p>
       </article>
@@ -168,19 +236,19 @@
 
     <!-- 物品 -->
     <div class="grid4 panel" data-panel="item">
-      <article class="item q-red reveal" data-detail="book" tabindex="0" role="button" aria-label="真理之书 详情">
+      <article class="item q-gold reveal" data-detail="book" tabindex="0" role="button" aria-label="真理之书 详情">
         <img src="img/book.png" alt="真理之书">
-        <h4>真理之书 <span class="chip q-red">红</span></h4>
+        <h4>真理之书 <span class="chip q-gold">金</span></h4>
         <p>智力 <b>+1000 且 +1000%</b>；攻击智力低于自己者造成 21 亿物理伤害，<b>无视对方的免伤与防御值</b>（这一击不可被闪避）。</p>
       </article>
-      <article class="item q-red reveal" data-detail="deathnote" tabindex="0" role="button" aria-label="死亡笔记 详情">
+      <article class="item q-gold reveal" data-detail="deathnote" tabindex="0" role="button" aria-label="死亡笔记 详情">
         <img src="img/death-note.png" alt="死亡笔记">
-        <h4>死亡笔记 <span class="chip q-red">红</span></h4>
+        <h4>死亡笔记 <span class="chip q-gold">金</span></h4>
         <p>攻击改为施加「死亡标记」；每 1 游戏年点名敌方阵营击杀数最高的 5 位，每人 9 亿物理伤害。</p>
       </article>
-      <article class="item q-red reveal" data-detail="gauntlet" tabindex="0" role="button" aria-label="无限手套 详情">
+      <article class="item q-gold reveal" data-detail="gauntlet" tabindex="0" role="button" aria-label="无限手套 详情">
         <img src="img/gauntlet.png" alt="无限手套">
-        <h4>无限手套 <span class="chip q-red">红</span></h4>
+        <h4>无限手套 <span class="chip q-gold">金</span></h4>
         <p>伤害 / 生命 +900000000、防御值 +9000000、免伤与破免伤 +50%；血量过低时爆发，对全图一半敌人造成巨额物理伤害。</p>
       </article>
       <article class="item q-gold reveal" data-detail="deathpower" tabindex="0" role="button" aria-label="死亡变强系统 详情">
@@ -213,9 +281,9 @@
         <h4>十万年魂环 <span class="chip q-purple">紫</span></h4>
         <p>五项各 +100000，免伤 / 破免伤 +10%。</p>
       </article>
-      <article class="item q-red reveal" data-detail="hunhuan1000000" tabindex="0" role="button" aria-label="百万年魂环 详情">
+      <article class="item q-gold reveal" data-detail="hunhuan1000000" tabindex="0" role="button" aria-label="百万年魂环 详情">
         <img src="img/hunhuan-1000000.png" alt="百万年魂环">
-        <h4>百万年魂环 <span class="chip q-red">红</span></h4>
+        <h4>百万年魂环 <span class="chip q-gold">金</span></h4>
         <p>五项各 +1000000，免伤 / 破免伤 +100%。</p>
       </article>
       <article class="item q-gold reveal" data-detail="hunhuan10000000" tabindex="0" role="button" aria-label="千万年魂环 详情">
@@ -237,9 +305,9 @@
 
     <!-- 技能 -->
     <div class="grid4 panel" data-panel="skill">
-      <article class="item q-purple reveal" data-detail="offering" tabindex="0" role="button" aria-label="六道祭品 详情">
+      <article class="item q-red reveal" data-detail="offering" tabindex="0" role="button" aria-label="六道祭品 详情">
         <img src="img/six-offering.png" alt="六道祭品">
-        <h4>六道祭品 <span class="chip q-purple">紫</span></h4>
+        <h4>六道祭品 <span class="chip q-red">红</span></h4>
         <p>杀满 6 人，把这 6 人的生命/伤害/移速/攻速总和 ×6 并入自身；之后每杀 1 人持续延长，期间额外免伤、免疫负面、可飞行。</p>
       </article>
       <article class="item q-blue reveal" data-detail="susanoo" tabindex="0" role="button" aria-label="须佐能乎 详情">
@@ -432,20 +500,28 @@
       <ul>
         <li>① 表里都是<b>建议价</b> —— 商店里可以逐件改；改的只是那一件的售价，不影响别的商品。</li>
         <li>② 定价口径 = <b>魂环牌价</b>（<b>1 币 ≈ 六维各 +1</b>）+ <b>机制溢价</b>：七枚魂环的售价就等于它的年限数值
-          （十年环 10 币 …… 千万年环 1000 万币），其余内容按它带来的机制强度在牌价之上加价。</li>
+          （十年环 10 币 …… 百万年环 1000 万币、千万年环 1 亿币），其余内容按它带来的机制强度在牌价之上加价。</li>
         <li>③ <b>品质 = 价格档</b>（本模组内容与原版特质同一把尺子）：白 &lt;100 ｜ 黄 100~999 ｜ 绿 1,000~9,999 ｜
           蓝 1万~9.99万 ｜ 紫 10万~99.9万 ｜ 红 100万~999万 ｜ 金 ≥1000万。<b>想调品质就调价</b> ——
           模组每次启动都会按当前价格把货架的品质校准一遍（商店格子、修改器格子、游戏特质栏三处同步）。</li>
         <li>④ <b>不上架</b>的有三类：原版里的<b>负面 / 控制类</b>特质；游戏里<b>「不可手动赋予」</b>的
           （三个 <b>desire_*</b> 欲求 + 神迹）；以及刻意排除的<b>「和睦」</b>（永不主动攻击）。
           本模组那 6 个状态（疯狂 / 永恒之火 / 无法攻击 / 停止 / 死亡标记 / 赫刀之伤）同理也不上架。</li>
+        <li>⑤ <b>2026-09-19 按赚币曲线重定价</b>：有了上面的「升阶耗时表」就能反推每个阶段手上大概有多少币，
+          于是把 <b>≤10 万</b>的商品全部保持不动（一~五阶的消费区间）、<b>≥10 万的整体 ×10</b>，
+          顶级「死亡变强系统」定到 <b>10 亿</b> —— 排成「六阶 78万 → 七阶 728万 → 八阶 6728万 →
+          九阶 6.17亿 → 十阶 56亿」逐级买得起的阶梯。售价上限同时抬到 <b>100 亿</b>
+          （所以「金」现在是一整段：1000万 ~ 100亿）。老存档会自动重定价一次：只改<b>还是默认价</b>的商品，
+          你手改过价的一律不动。</li>
       </ul>
       <h4>配置页新增的两个开关</h4>
       <ul>
-        <li>「<b>商店·模组特质自动上架</b>」与「<b>商店·原版特质自动上架</b>」：默认<b>都开</b>，
+        <li>「<b>商店·模组特质自动上架</b>」（默认<b>开</b>）与「<b>商店·原版特质自动上架</b>」（默认<b>关</b>），
           分别把上面那 25 件与 58 件自动铺进商店，不用一件件手动加。</li>
         <li>改完<b>立刻生效</b>，不用重启游戏。</li>
         <li><b>关闭</b>会把对应那一组商品<b>全部下架</b>；<b>重新打开</b>则把缺的补齐。</li>
+        <li>原版那一组默认关：<b>老存档货架上残留的原版特质</b>会在下一次启动时被自动撤掉（只撤一次，
+          不算「你删过」——以后你把开关打开，它们照常按表回来）。</li>
         <li>下架时会先<b>还原</b>被改过的品质 / 名字 / 描述，不留改动痕迹；你自己<b>手动上架</b>的其它特质<b>不受影响</b>。</li>
       </ul>
     </div>
@@ -460,7 +536,7 @@
     <ol class="steps">
       <li class="reveal"><span>1</span><div><h4>打开配置</h4><p>神力栏「扎克」→ 最高存在配置 → 打开「能否获得轮回者特质」（默认关闭，获得率默认 1%）。</p></div></li>
       <li class="reveal"><span>2</span><div><h4>造一个轮回者</h4><p>等新单位诞生时判定命中，或直接用「扎克修改器」手动给某个单位加上轮回者特质。</p></div></li>
-      <li class="reveal"><span>3</span><div><h4>等它接任务</h4><p>每 30 年（可调）刷出一只挑战骷髅，5 年内打死就算完成 —— 属性与轮回币一起涨，经验攒够自动升阶。</p></div></li>
+      <li class="reveal"><span>3</span><div><h4>等它接任务</h4><p>每 10 年（可调）结算一次任务（默认直接发奖，也可改成刷挑战骷髅），属性与轮回币一起涨，经验攒够自动升阶。</p></div></li>
       <li class="reveal"><span>4</span><div><h4>死了别慌</h4><p>打开「轮回空间」等倒计时，或直接点「立即轮回」；轮回者回来时等级与家当全都在。</p></div></li>
     </ol>
   </div>

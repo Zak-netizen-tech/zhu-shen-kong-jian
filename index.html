@@ -22,6 +22,7 @@
       <a href="#core" data-view="core">核心玩法</a>
       <a href="#contents" data-view="contents">内容图鉴</a>
       <a href="#systems" data-view="systems">系统功能</a>
+      <a href="#modifier" data-view="modifier">主神修改器</a>
       <a href="#mods" data-view="mods">联动模组</a>
       <a href="#modstats" data-view="modstats">可修改属性</a>
       <a href="#start" data-view="start">快速上手</a>
@@ -46,6 +47,7 @@
       <div class="hero-btns">
         <a class="btn btn-gold" href="#core">看玩法</a>
         <a class="btn btn-ghost" href="#contents">看图鉴</a>
+        <a class="btn btn-ghost" href="#modifier">主神修改器</a>
       </div>
       <ul class="hero-stats">
         <li><b>10</b><span>阶轮回者</span></li>
@@ -368,7 +370,7 @@
   <div class="wrap">
     <p class="eyebrow">SYSTEMS</p>
     <h2>神力与系统</h2>
-    <p class="section-sub">游戏底部神力栏「扎克」页就是入口，另外还有修改器与信息面板。</p>
+    <p class="section-sub">游戏底部神力栏「主神空间」页就是入口，另外还有修改器与信息面板。</p>
 
     <div class="grid3">
       <article class="feat reveal">
@@ -407,10 +409,12 @@
         </div>
       </article>
       <article class="feat reveal">
-        <img src="img/trait.png" alt="扎克修改器">
+        <img src="img/trait.png" alt="主神修改器">
         <div>
-          <h3>扎克修改器</h3>
-          <p>给人授予 / 删除 体质 · 物品 · 技能 · 状态；右上角「自定义内容数据」可改里面出现的<b>每一个数字</b>，改完立刻生效、不用重启。</p>
+          <h3>主神修改器</h3>
+          <p>窗口顶部四个主按钮：<b>添加特质</b>（体质 · 物品 · 技能 · 状态，右上角「自定义内容数据」可改里面每一个数字）、
+             <b>修改器</b>（这只生物的全部数据 + 顶部属性搜索栏，改完立即生效且不跳回最上方）、
+             <b>特质面板</b>、<b>世界排行</b>（详见导航「主神修改器」一栏）。神力栏「主神空间」里的按钮是不绑定生物的全局入口。</p>
         </div>
       </article>
       <article class="feat reveal">
@@ -528,14 +532,91 @@
   </div>
 </section>
 
+<!-- ===================== 主神修改器 ===================== -->
+<section class="section section-alt" id="modifier">
+  <div class="wrap">
+    <p class="eyebrow">MODIFIER</p>
+    <h2>主神修改器</h2>
+    <p class="section-sub">
+      窗口里的<b>「世界排行」</b>页 —— 以上帝视角俯视整个世界：世界的每一个生物，
+      按<b>你随手点的那一项</b>排出高低。鬼谷的修仙倍率、伤害、年龄、寿命、特质、国家、生物类型、职业……
+      点哪个就按哪个排。
+    </p>
+
+    <div class="grid3">
+      <article class="feat reveal">
+        <img src="img/reincarnation-board.png" alt="世界排行">
+        <div>
+          <h3>点一下就按它排</h3>
+          <p>左栏按四类列出可排的项：<b>属性</b>（原版 + 本模组 + 其它模组注册的全部属性）、
+             <b>数据键</b>（其它模组写在生物身上的自定义值，如鬼谷的修仙倍率）、<b>特质</b>、
+             <b>国家 · 生物类型 · 职业</b>。点某个字段 = 按它从高到低排；<b>再点同一个 = 切换升 / 降序</b>。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🔎</div>
+        <div>
+          <h3>名单行行有信息</h3>
+          <p>每一行直接写着 <b>#名次 姓名 · 种族 · 性别 · 国家 · 职业</b>，右侧是所排字段的数值；
+             右栏搜索框支持<b>名字 / 种族 / 国家 / 职业 / 身上任一特质名</b> —— 搜「轮回者」就能列出所有带这条特质的生物。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">👁️</div>
+        <div>
+          <h3>点一行 → 原版面板</h3>
+          <p>点名单里任意一行，<b>直接进入这个生物的原版人物面板</b>（同时把主神修改器收起，免得挡住面板）；
+             想改它，就在那个面板上点「主神修改器」。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <img src="img/observer-icon.png" alt="观察者保护">
+        <div>
+          <h3>观察者保护</h3>
+          <p>身上带<b>观察者特质</b>的生物，修改器<b>一律改不动</b>：点下去只会弹出
+             「<b>主神观察者制裁：本次修改无效</b>」——添加特质、数据修改、特质面板三页都挡。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <img src="img/mod-icon.png" alt="属性搜索">
+        <div>
+          <h3>属性也能搜</h3>
+          <p>「修改器」页顶部新增<b>搜索栏</b>：几百项属性 / 数据键 / 特质，输中文直接筛；
+             改完一个数值<b>不会弹回最上方</b>，接着改下一个就行。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">📄</div>
+        <div>
+          <h3>上万生物也不卡</h3>
+          <p>名单<b>分页显示</b>（每页 100 行），左右两栏各自独立滚动；换字段、换升降序是即时重排，
+             只有点字段 / 改搜索词时才重新扫一遍世界。</p>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="subhead">三步用起来</h3>
+    <ol class="steps">
+      <li class="reveal"><span>1</span><div><h4>打开入口</h4><p>游戏底部神力栏「<b>主神空间</b>」栏目 → 点「<b>主神修改器</b>」（这个入口不绑定生物，专门干全局的事）。</p></div></li>
+      <li class="reveal"><span>2</span><div><h4>进世界排行</h4><p>窗口顶部点主按钮「<b>世界排行</b>」；左边先选分类（属性 / 数据键 / 特质 / 国家·类型·职业），再点你想排的那一项。</p></div></li>
+      <li class="reveal"><span>3</span><div><h4>看谁最强</h4><p>右上角切「顺序：低→高 / 高→低」，搜索框里打名字或种族缩小范围；点一行就跳到它的原版人物面板。</p></div></li>
+    </ol>
+
+    <p class="section-sub">
+      注：从<b>生物面板</b>点进「主神修改器」的是「改这一只生物」的入口（添加特质 / 修改器 / 特质面板），
+      <b>不含「世界排行」</b>；世界排行只在这个神力栏入口的窗口里。两个入口右上角都只留「返回」按钮，没有关闭（X）。
+    </p>
+  </div>
+</section>
+
 <!-- ===================== 快速上手 ===================== -->
 <section class="section section-alt" id="start">
   <div class="wrap">
     <p class="eyebrow">QUICK START</p>
     <h2>四步开一局</h2>
     <ol class="steps">
-      <li class="reveal"><span>1</span><div><h4>打开配置</h4><p>神力栏「扎克」→ 最高存在配置 → 打开「能否获得轮回者特质」（默认关闭，获得率默认 1%）。</p></div></li>
-      <li class="reveal"><span>2</span><div><h4>造一个轮回者</h4><p>等新单位诞生时判定命中，或直接用「扎克修改器」手动给某个单位加上轮回者特质。</p></div></li>
+      <li class="reveal"><span>1</span><div><h4>打开配置</h4><p>神力栏「主神空间」→ 最高存在配置 → 打开「能否获得轮回者特质」（默认关闭，获得率默认 1%）。</p></div></li>
+      <li class="reveal"><span>2</span><div><h4>造一个轮回者</h4><p>等新单位诞生时判定命中，或直接用「主神修改器」手动给某个单位加上轮回者特质。</p></div></li>
       <li class="reveal"><span>3</span><div><h4>等它接任务</h4><p>每 10 年（可调）结算一次任务（默认直接发奖，也可改成刷挑战骷髅），属性与轮回币一起涨，经验攒够自动升阶。</p></div></li>
       <li class="reveal"><span>4</span><div><h4>死了别慌</h4><p>打开「轮回空间」等倒计时，或直接点「立即轮回」；轮回者回来时等级与家当全都在。</p></div></li>
     </ol>

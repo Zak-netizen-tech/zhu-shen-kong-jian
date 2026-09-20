@@ -17,6 +17,8 @@
   --green:     #43ff43;
   --radius:    14px;
   --shadow:    0 18px 40px rgba(0,0,0,.45);
+  /* 顶部固定导航的实际高度：由 js/main.js 实测后写入（手机窄屏导航会变成两行，比桌面的 64px 高） */
+  --nav-h:     64px;
 }
 
 /* 八档品级色（与游戏内一致） */
@@ -32,7 +34,7 @@
 
 *{ box-sizing:border-box; }
 
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; scroll-padding-top:var(--nav-h); }
 
 body{
   margin:0;
@@ -65,10 +67,16 @@ a{ color:inherit; text-decoration:none; }
 .brand{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.5px; }
 .brand img{ width:30px; height:30px; border-radius:7px; }
 .brand em{ font-style:normal; color:var(--muted); font-size:12px; margin-left:6px; }
-/* 顶部模块按钮：点一下切换显示（同一时间只显示一个模块） */
-.nav-links{ display:flex; gap:8px; margin-left:auto; font-size:13.5px; color:var(--muted); flex-wrap:wrap; }
+/* 顶部模块按钮：点一下切换显示（同一时间只显示一个模块）
+   ★ flex-wrap:nowrap + overflow-x:auto：**永远只占一行**（放不下就横向滑），
+     否则窄屏会把 9 个按钮折成 3 行、导航条高到 200px 以上（手机上像一条大横幅压着页面）。 */
+.nav-links{
+  display:flex; gap:6px; margin-left:auto; font-size:13px; color:var(--muted);
+  flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+}
+.nav-links::-webkit-scrollbar{ height:0; }
 .nav-links a{
-  position:relative; padding:6px 13px; border-radius:999px;
+  position:relative; padding:6px 11px; border-radius:999px;
   border:1px solid transparent; white-space:nowrap;
   transition:background .2s, color .2s, border-color .2s, box-shadow .2s;
 }
@@ -90,7 +98,8 @@ a{ color:inherit; text-decoration:none; }
 .view-off{ display:none !important; }
 
 /* ===================== 首屏 ===================== */
-.hero{ position:relative; padding:120px 0 70px; overflow:hidden; }
+/* 首屏上边距 = 导航实测高度 + 56（桌面：64+56=120，与原来的 120px 一致；手机导航变高时自动跟着变） */
+.hero{ position:relative; padding:calc(var(--nav-h) + 56px) 0 70px; overflow:hidden; }
 .hero-glow{
   position:absolute; inset:-20% -10% auto -10%; height:120%;
   background:
@@ -333,7 +342,8 @@ table.tbl th, table.tbl td{
   text-align:center; white-space:nowrap;
 }
 table.tbl thead th{
-  position:sticky; top:0; z-index:1;
+  /* 表头吸顶时别被固定导航压住：吸在导航下沿 */
+  position:sticky; top:var(--nav-h); z-index:1;
   background:var(--panel-2); color:var(--gold-2); font-weight:700;
 }
 table.tbl tbody th{ text-align:left; color:#c8ced9; font-weight:600; }
@@ -390,17 +400,22 @@ table.tbl .hl{ color:var(--gold); font-weight:700; }
   .cards3{ grid-template-columns:1fr; }
   .grid4{ grid-template-columns:repeat(2,1fr); }
   .grid3{ grid-template-columns:repeat(2,1fr); }
-  /* 顶部模块按钮是唯一入口，窄屏不能藏起来：改成横向可滑的一行 */
+  /* 顶部模块按钮是唯一入口，窄屏不能藏起来：整条单独一行、横向滑动（内部不换行，见 .nav-links 的 nowrap） */
   .nav-inner{ height:auto; flex-wrap:wrap; padding:10px 0; row-gap:8px; }
   .nav-links{
     order:3; width:100%; margin-left:0; gap:6px;
-    overflow-x:auto; padding-bottom:2px; -webkit-overflow-scrolling:touch;
+    padding-bottom:2px;
   }
-  .nav-links::-webkit-scrollbar{ height:0; }
-  .brand{ flex:1 1 auto; }
+  .nav-links a{ padding:5px 11px; font-size:13px; }
+  /* 品牌别独占一行（否则 QQ 徽标被挤到下一行，导航白白多出一行高） */
+  .brand{ flex:0 1 auto; }
+  /* 窄屏导航是两行（并可能被浏览器自带的搜索/地址栏再压一点），首屏再多留一些，保证顶部内容完整可见 */
+  .hero{ padding-top:calc(var(--nav-h) + 72px); }
 }
 @media (max-width:640px){
   .section{ padding:60px 0; }
+  /* 小屏连副标题也省掉，导航条更矮（首屏能多露出一截内容） */
+  .brand em{ display:none; }
   .grid4{ grid-template-columns:1fr; }
   .grid3{ grid-template-columns:1fr; }
   .steps{ grid-template-columns:1fr; }

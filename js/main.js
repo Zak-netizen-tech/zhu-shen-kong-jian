@@ -54,7 +54,22 @@
 
   window.addEventListener('hashchange', function () { showView(viewFromHash()); });
 
-  /* ---------- ② 导航：滚动后加深背景 ---------- */
+  /* ---------- ② 导航：滚动后加深背景 + 把实测高度写进 --nav-h ---------- */
+  /* 手机窄屏导航会折成两行（比桌面的 64px 高），首屏留白若按写死的 64px 算，
+     顶部就会被这条固定导航压住一部分（用户反馈「手机版上方总被按钮栏遮一部分」）。
+     这里实测导航高度写进 CSS 变量 --nav-h，样式里用 calc(var(--nav-h) + …) 留白，
+     于是任何屏宽 / 字体缩放 / 换行情况都不会再被遮。 */
+  function syncNavHeight() {
+    if (!nav) return;
+    var h = Math.round(nav.getBoundingClientRect().height);
+    if (h > 0) document.documentElement.style.setProperty('--nav-h', h + 'px');
+  }
+  syncNavHeight();
+  window.addEventListener('resize', syncNavHeight);
+  window.addEventListener('orientationchange', syncNavHeight);
+  window.addEventListener('load', syncNavHeight);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', syncNavHeight);
+
   function onScroll() {
     var y = window.scrollY || document.documentElement.scrollTop;
     if (nav) nav.classList.toggle('is-stuck', y > 40);

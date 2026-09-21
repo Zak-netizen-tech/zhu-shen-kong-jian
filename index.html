@@ -256,7 +256,8 @@
       <article class="item q-gold reveal" data-detail="deathpower" tabindex="0" role="button" aria-label="死亡变强系统 详情">
         <img src="img/death-power.png" alt="死亡变强系统">
         <h4>死亡变强系统 <span class="chip q-gold">金</span></h4>
-        <p>受到致命伤时原地复活：修为 / 特质 / 氏族 / 阵营关系全部保留，年龄回 18 岁；每次复活<b>永久叠加</b>属性。</p>
+        <p>受到致命伤时原地复活：修为 / 特质 / 氏族 / 阵营关系全部保留，年龄回 18 岁；每次复活<b>永久叠加</b>属性。<br>
+          另外<b>每死 2 次</b>（复活次数 ÷ 2，向下取整）额外 <b>免伤 / 破免伤 / 闪避率 各 +1%</b>（可调）：死 1 次不给、死 2 次 +1%、死 4 次 +2%，无上限叠加。</p>
       </article>
       <article class="item q-white reveal" data-detail="hunhuan10" tabindex="0" role="button" aria-label="十年魂环 详情">
         <img src="img/hunhuan-10.png" alt="十年魂环">
@@ -283,9 +284,9 @@
         <h4>十万年魂环 <span class="chip q-purple">紫</span></h4>
         <p>五项各 +100000，免伤 / 破免伤 +10%。</p>
       </article>
-      <article class="item q-gold reveal" data-detail="hunhuan1000000" tabindex="0" role="button" aria-label="百万年魂环 详情">
+      <article class="item q-red reveal" data-detail="hunhuan1000000" tabindex="0" role="button" aria-label="百万年魂环 详情">
         <img src="img/hunhuan-1000000.png" alt="百万年魂环">
-        <h4>百万年魂环 <span class="chip q-gold">金</span></h4>
+        <h4>百万年魂环 <span class="chip q-red">红</span></h4>
         <p>五项各 +1000000，免伤 / 破免伤 +100%。</p>
       </article>
       <article class="item q-gold reveal" data-detail="hunhuan10000000" tabindex="0" role="button" aria-label="千万年魂环 详情">
@@ -453,9 +454,20 @@
         <div class="feat-emoji" aria-hidden="true">🗡️</div>
         <div>
           <h3>破免伤</h3>
-          <p>按百分点「减法」吃掉对方的减免：本模组免伤、鬼谷境界压制（99.99% − 破免伤）、
-            凡人每差 1 境的减伤、玄门 0.1^境界差、斗破按实测折减穿透（它<b>直接归零</b>的免疫/闪避不穿透）。<br>
+          <p>既是攻击属性，也是本模组的「穿透」键（<b>常开</b>，没有开关）。按百分点「减法」吃掉对方的减免：
+            本模组免伤、鬼谷境界压制（99.99% − 破免伤）、凡人每差 1 境的减伤、玄门 0.1^境界差。
             溢出伤害击穿：超出当前生命的伤害会直接扣对方的「天地之力」（鬼谷护体/保命资源），两者都空即击杀。</p>
+          <p><b>① 按比例破防御值</b>：本模组防御值 ×（1 − 破免伤%）；<b>原版护甲</b>同样按比例破
+            （护甲 85 + 破免伤 50% ⇒ 只算 42.5% 的减伤）。</p>
+          <p><b>② 穿透别家模组的减伤</b>：凡是挂在 <code>Actor.getHit</code> 上的守方减伤都会被按实测折减系数还原 ——
+            例如斩神录的<b>境界压制</b>（差 ≥3 境 ×0.02、人类天花板以上每高一境 ×0.5）、西幻 / 龙族等减伤。
+            这一层<b>不认模组名字</b>，所以以后新装的模组也自动生效。</p>
+          <p><b>③ 真伤强制</b>：把「免伤与防御值各自算完、再减去破免伤」之后的那份伤害当<b>真伤</b>打出去 ——
+            不会被别家继续折、不会被免死层锁血 / 回满、也不吃护盾；打完血量归零就<b>强制走死亡判定</b>
+            （不再等原版每拍那次检查，开着界面也不会出现「0 血站着不死」）。<br>
+            ★ 死亡仍然走各家的复活机制：本模组的死亡变强 / 不死图腾 / 轮回空间，以及别的模组的复活，照旧生效（<b>可复活</b>）。</p>
+          <p>以上 ①②③ 只在攻击者破免伤 &gt; 0 时触发；<b>破免伤 0% 时行为与老版本完全一致</b>。
+            观察者不受影响（那是本模组的「上帝单位」，有自己的免疫通道）。</p>
         </div>
       </article>
       <article class="feat reveal">

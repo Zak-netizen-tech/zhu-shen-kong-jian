@@ -23,6 +23,7 @@
       <a href="#contents" data-view="contents">内容图鉴</a>
       <a href="#systems" data-view="systems">系统功能</a>
       <a href="#modifier" data-view="modifier">主神修改器</a>
+      <a href="#arena" data-view="arena">轮回竞技场</a>
       <a href="#mods" data-view="mods">联动模组</a>
       <a href="#modstats" data-view="modstats">可修改属性</a>
       <a href="#start" data-view="start">快速上手</a>
@@ -378,7 +379,7 @@
         <img src="img/mod-icon.png" alt="最高存在配置">
         <div>
           <h3>最高存在配置</h3>
-          <p>模组设置页 <b>25 项</b>，已按功能分组排序：观察者生成与全图打击、轮回者获得与获得率、<b>任务三开关</b>（轮回币 / 属性 / 经验）、掠夺开关与比例、三个收益倍率、跨存档轮回、骷髅生成间隔与复活年数、<b>商店两开关</b>（模组特质 / 原版特质自动上架）等。</p>
+          <p>模组设置页 <b>34 项</b>，已按功能分组排序：观察者生成与全图打击、轮回者获得与获得率、<b>任务三开关</b>（轮回币 / 属性 / 经验）、掠夺开关与比例、三个收益倍率、跨存档轮回、骷髅生成间隔与复活年数、<b>商店两开关</b>（模组特质 / 原版特质自动上架）、普通生物能否获取<b>轮回币 / 属性</b>两个开关（<b>默认关</b>）、<b>轮回竞技场六项</b>（总开关 / 抽取间隔 / 每次抽取数 / 继承百分比 / 胜者任务次数 / 继承特质）等。</p>
         </div>
       </article>
       <article class="feat reveal">
@@ -430,6 +431,14 @@
         <div>
           <h3>生物系统</h3>
           <p>昆虫生成动物、动物生成人种的开关与概率（默认 20%，可调），让世界自己演化出人种与王国。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <img src="img/arena.png" alt="轮回竞技场">
+        <div>
+          <h3>轮回竞技场</h3>
+          <p>每 N 年自动抽一批<b>同阶生物</b>进场疯狂互殴，胜者领任务奖励。场地<b>无坚不摧、禁止放置、不长矿</b>，
+             非参赛者会被<b>传送出圈</b>；<b>排行榜点一行就跳到那个生物的面板</b>。</p>
         </div>
       </article>
     </div>
@@ -618,6 +627,136 @@
       注：从<b>生物面板</b>点进「主神修改器」的是「改这一只生物」的入口（添加特质 / 修改器 / 特质面板），
       <b>不含「世界排行」</b>；世界排行只在这个神力栏入口的窗口里。两个入口右上角都只留「返回」按钮，没有关闭（X）。
     </p>
+  </div>
+</section>
+
+<!-- ===================== 轮回竞技场 ===================== -->
+<section class="section" id="arena">
+  <div class="wrap">
+    <p class="eyebrow">ARENA</p>
+    <h2>轮回竞技场</h2>
+    <p class="section-sub">把全图同阶的生物抽进同一座擂台，让它们互相仇恨、疯狂互殴，最后只剩一只。</p>
+
+    <div class="grid3">
+      <article class="feat reveal">
+        <img src="img/arena.png" alt="轮回竞技场">
+        <div>
+          <h3>入口与总开关</h3>
+          <p>入口在游戏底部神力栏「<b>主神空间</b>」栏目里的「<b>轮回竞技场</b>」按钮。必须先到模组配置里打开
+             「<b>是否开启轮回竞技场功能</b>」（<b>默认关闭</b>），否则点按钮只会飘一句提示、不开窗。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🏆</div>
+        <div>
+          <h3>竞技排行榜</h3>
+          <p>窗口叫「<b>轮回竞技场</b>」，主区是「<b>竞技排行榜</b>」：列出<b>参加过竞技的生物</b>，六列 =
+             <b>种族 / 性别 / 姓名 / 品阶 / 参加次数 / 竞技场击杀数</b>（击杀数只统计<b>竞技场内击杀</b>）。
+             <b>点任意一行会跳到那个生物的原版人物面板</b>。榜单<b>按存档隔离</b> —— A 存档的生物不会出现在 B 存档的榜单里。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">📐</div>
+        <div>
+          <h3>右侧三个按钮</h3>
+          <p><b>调整竞技场大小</b>（10 档，直径 <b>10…100</b>，默认 <b>50</b>）、<b>放置竞技场</b>、<b>撤回竞技场</b>。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🖱️</div>
+        <div>
+          <h3>怎么放</h3>
+          <p>点「放置竞技场」进入放置模式 → <b>屏幕左侧竖排出现 10 档尺寸条</b>（当前档高亮），
+             <b>下方还有一个「关闭」按钮</b>（等同右键 / Esc 退出）。<b>鼠标左键点地图即可放置，可以连续放多座</b>
+             （按住 <b>Shift</b> 或开启原版「快速放置」就是连发，与放生物的手感一样）。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">⭕</div>
+        <div>
+          <h3>预览即真实范围</h3>
+          <p><b>透明白色预览范围 = 竞技场的真实范围</b>（同一个圆判定）。圆内有<b>一格出地图</b>、
+             或与已有竞技场<b>相交</b> → 「本次不生成」。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🏔️</div>
+        <div>
+          <h3>场地长什么样</h3>
+          <p>最外 3 圈围墙 = <b>雪峰 / 光之墙 / 雪峰</b>，圈内整片<b>丘陵</b>；直径 = 整座（含 3 圈墙）。
+             <b>撤回竞技场 = 原地形逐格还原</b>。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🚫</div>
+        <div>
+          <h3>场内铁律</h3>
+          <p><b>无坚不摧</b>（圈内地形不被任何方式改动，包括本模组六眼领域、灾害与其它模组）、
+             <b>禁止放置</b>（圈内任何神力都放不进去）、<b>非参赛者会被传送出圈</b>、
+             <b>圈内不长矿石</b>（已经长出来的会被清掉）。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🎲</div>
+        <div>
+          <h3>抽签</h3>
+          <p>每 <b>N 游戏年</b>（配置「竞技场抽取间隔」，1~1000，默认 <b>10</b>）抽一次：先在 <b>1~8 阶</b>里找出
+             「全图数量够」的阶，随机挑一阶，再随机抽 <b>M 只</b>（配置「每次抽取生物数量」，2~100，默认 <b>2</b>）。
+             多座竞技场共用同一批候选、<b>抽过就不会被重复抽</b>；不抽圈内的 / 观察者 / 已死的；
+             <b>没有合格的阶就不抽</b>。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">⚔️</div>
+        <div>
+          <h3>入场与互殴</h3>
+          <p>抽中者<b>直接落到圆心那一格、再一圈圈往外</b>（一格一只、不叠），并立刻获得本模组的「<b>疯狂</b>」
+             （红色品质状态）；之后由系统<b>维持互相仇恨</b>；<b>一旦脱离仇恨，全场会被传送回圆心重新开打</b>。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🩸</div>
+        <div>
+          <h3>击杀与继承</h3>
+          <p>竞技场里击杀会让他<b>竞技场击杀数 +1</b>；「击杀继承有益特质」（默认开）会继承死者的<b>全部有益特质</b>；
+             并<b>一律继承死者全部属性数值的「竞技场击杀继承属性百分比（%）」</b>（文本输入，默认 <b>50</b>，可填 1~1000）。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">🏅</div>
+        <div>
+          <h3>结算与超时</h3>
+          <p><b>只剩最后一只</b> → 它回到原位、解除疯狂，并领取「<b>胜者获得任务奖励次数</b>」（1~100，默认 <b>10</b>）次
+             <b>随机 D~S 级任务奖励</b>。<br>
+             超时：抽入后过了<b>一个抽取间隔</b>还没分出唯一的胜者 → <b>全部传送走、不发结算奖励</b>；
+             被杀的照常走原版死亡流程（轮回者正常进轮回空间），<b>竞技场不掠夺、不扣属性</b>。</p>
+        </div>
+      </article>
+      <article class="feat reveal">
+        <div class="feat-emoji" aria-hidden="true">💾</div>
+        <div>
+          <h3>存档</h3>
+          <p>场地本身<b>不落盘</b>（只在当前世界，换存档 / 读档即丢弃）；<b>排行榜按存档隔离</b>。</p>
+        </div>
+      </article>
+    </div>
+
+    <h3 class="subhead">六个配置项（含默认值）</h3>
+    <ul class="list">
+      <li>① 是否开启轮回竞技场功能（默认 <b>关</b>）</li>
+      <li>② 竞技场抽取间隔（年，1~1000，默认 <b>10</b>）</li>
+      <li>③ 每次抽取生物数量（2~100，默认 <b>2</b>）</li>
+      <li>④ 竞技场击杀继承属性百分比（%，文本输入，默认 <b>50</b>）</li>
+      <li>⑤ 胜者获得任务奖励次数（1~100，默认 <b>10</b>）</li>
+      <li>⑥ 击杀继承有益特质（默认 <b>开</b>）</li>
+    </ul>
+
+    <h3 class="subhead">三步玩起来</h3>
+    <ol class="steps">
+      <li class="reveal"><span>1</span><div><h4>打开总开关</h4><p>模组配置里打开「是否开启轮回竞技场功能」（<b>默认关闭</b>），否则点按钮只会飘一句提示、不开窗。</p></div></li>
+      <li class="reveal"><span>2</span><div><h4>放置竞技场</h4><p>神力栏「<b>主神空间</b>」→ 点「<b>轮回竞技场</b>」→ 调大小、放置（可多座）。</p></div></li>
+      <li class="reveal"><span>3</span><div><h4>看它们互殴</h4><p>等抽签或把时间调快，看它们互殴、点排行榜里的人跳面板看它长什么样。</p></div></li>
+    </ol>
   </div>
 </section>
 
